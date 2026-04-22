@@ -1,4 +1,4 @@
-import { GITHUB_OWNER, githubRepoUrl } from "./site-config";
+import { GITHUB_SITE_OWNER, githubRepoUrl } from "./site-config";
 
 export const displayName = "Alex Egger" as const;
 export const legalName = "Alexander Egger" as const;
@@ -20,8 +20,8 @@ export const contact = {
   email: "alexegger224@gmail.com",
   linkedinHref: "https://www.linkedin.com/in/alexegger224/",
   linkedinLabel: "linkedin.com/in/alexegger224",
-  githubHref: `https://github.com/${GITHUB_OWNER}`,
-  githubLabel: `github.com/${GITHUB_OWNER}`,
+  githubHref: `https://github.com/${GITHUB_SITE_OWNER}`,
+  githubLabel: `github.com/${GITHUB_SITE_OWNER}`,
 } as const;
 
 export type Lane = {

@@ -1,3 +1,5 @@
+# Optional: only when Pages → Build and deployment → Source = "GitHub Actions".
+# If you use "Deploy from branch" → main → /docs, rely on npm run build:pages + committed docs/ instead.
 name: Deploy Pages
 
 on:
@@ -6,7 +8,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: portfolio-website-pages-${{ github.ref }}
+  group: website-pages-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -42,12 +44,15 @@ jobs:
         run: |
           test -f out/index.html
           test -d out/_next
-          test -f out/.nojekyll || (echo "missing out/.nojekyll (should be copied from public/)" && exit 1)
+          test -f out/.nojekyll
+          grep -q "_next" out/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: out
+          # v4 excludes dotfiles from the tarball by default; .nojekyll must ship or Jekyll can skip _next/.
+          include-hidden-files: true
 
   deploy:
     needs: build

@@ -1,10 +1,11 @@
 {
-  "name": "portfolio-website",
+  "name": "website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:pages": "next build && node ./scripts/sync-github-pages-docs.mjs",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run"

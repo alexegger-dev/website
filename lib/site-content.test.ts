@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { DEFAULT_SITE_URL, GITHUB_OWNER, SITE_REPO_SLUG, githubRepoUrl } from "./site-config";
+import {
+  DEFAULT_SITE_URL,
+  GITHUB_PORTFOLIO_OWNER,
+  GITHUB_SITE_OWNER,
+  SITE_REPO_SLUG,
+  githubRepoUrl,
+} from "./site-config";
 import {
   allGithubRepoHrefs,
   contact,
@@ -7,25 +13,27 @@ import {
   portfolioRepos,
 } from "./site-content";
 
-const githubRepoPattern = new RegExp(
-  `^https://github\\.com/${GITHUB_OWNER}/[a-zA-Z0-9._-]+$`,
+const portfolioRepoPattern = new RegExp(
+  `^https://github\\.com/${GITHUB_PORTFOLIO_OWNER}/[a-zA-Z0-9._-]+$`,
 );
 
 describe("site-content", () => {
-  it("defaults the public site URL to the portfolio-website Pages host", () => {
-    expect(DEFAULT_SITE_URL).toBe(`https://${GITHUB_OWNER}.github.io/${SITE_REPO_SLUG}`);
+  it("defaults the public site URL to the GitHub Pages project host", () => {
+    expect(DEFAULT_SITE_URL).toBe(
+      `https://${GITHUB_SITE_OWNER}.github.io/${SITE_REPO_SLUG}`,
+    );
   });
 
   it("exposes valid GitHub URLs for every portfolio repo", () => {
     for (const repo of portfolioRepos) {
-      expect(githubRepoUrl(repo.slug)).toMatch(githubRepoPattern);
+      expect(githubRepoUrl(repo.slug)).toMatch(portfolioRepoPattern);
     }
   });
 
-  it("keeps lane repository links on the expected owner", () => {
+  it("keeps lane repository links on the portfolio owner", () => {
     for (const lane of lanes) {
       for (const repo of lane.repos) {
-        expect(repo.href).toMatch(githubRepoPattern);
+        expect(repo.href).toMatch(portfolioRepoPattern);
       }
     }
   });
@@ -41,7 +49,7 @@ describe("site-content", () => {
   it("uses stable contact channels", () => {
     expect(contact.email).toContain("@");
     expect(contact.linkedinHref).toMatch(/^https:\/\//);
-    expect(contact.githubHref).toBe(`https://github.com/${GITHUB_OWNER}`);
+    expect(contact.githubHref).toBe(`https://github.com/${GITHUB_SITE_OWNER}`);
     expect(contact.phoneTel).toMatch(/^\+1\d{10}$/);
   });
 });

@@ -1,4 +1,4 @@
-import { GITHUB_OWNER, RESUME_SOURCE_HREF } from "@/lib/site-config";
+import { GITHUB_SITE_OWNER, RESUME_SOURCE_HREF } from "@/lib/site-config";
 import {
   contact,
   displayName,
@@ -94,7 +94,7 @@ export function Hero() {
               target="_blank"
               rel="noreferrer"
             >
-              @{GITHUB_OWNER}
+              @{GITHUB_SITE_OWNER}
             </a>
           </div>
         </div>

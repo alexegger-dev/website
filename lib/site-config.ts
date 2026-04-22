@@ -1,21 +1,31 @@
-/** GitHub username for portfolio URLs (keep in sync with profile). */
-export const GITHUB_OWNER = "alexegger224" as const;
+/**
+ * GitHub user or org that owns this site repository (Pages + profile link in the hero).
+ * @see https://github.com/alexegger-dev/website
+ */
+export const GITHUB_SITE_OWNER = "alexegger-dev" as const;
 
 /**
- * Slug of the GitHub repository that hosts this site (used for default Pages URL and CI env).
- * Update if you rename the remote repository.
+ * Repository name on GitHub — must match `NEXT_PUBLIC_BASE_PATH` for project Pages
+ * (`https://<owner>.github.io/<repo>/`).
  */
-export const SITE_REPO_SLUG = "portfolio-website" as const;
+export const SITE_REPO_SLUG = "website" as const;
+
+/** Default canonical URL (no trailing slash). CI sets `NEXT_PUBLIC_SITE_URL` to match. */
+export const DEFAULT_SITE_URL =
+  `https://${GITHUB_SITE_OWNER}.github.io/${SITE_REPO_SLUG}` as const;
 
 /**
- * Repository slug that contains `resume.latex` (sibling monorepo folder / separate remote).
+ * Account where the public portfolio implementation repos live (repo grid + lane links).
+ * Change if you move those repositories under another org.
  */
+export const GITHUB_PORTFOLIO_OWNER = "alexegger224" as const;
+
+/** Owner and repo for the LaTeX resume deep link in the hero. */
+export const RESUME_REPO_OWNER = "alexegger224" as const;
 export const PERSONAL_REPO_SLUG = "personal" as const;
 
-/** Default public site URL when env is unset (override via NEXT_PUBLIC_SITE_URL). */
-export const DEFAULT_SITE_URL = `https://${GITHUB_OWNER}.github.io/${SITE_REPO_SLUG}` as const;
-
-export const RESUME_SOURCE_HREF = `https://github.com/${GITHUB_OWNER}/${PERSONAL_REPO_SLUG}/blob/main/resume.latex` as const;
+export const RESUME_SOURCE_HREF =
+  `https://github.com/${RESUME_REPO_OWNER}/${PERSONAL_REPO_SLUG}/blob/main/resume.latex` as const;
 
 export function getPublicSiteUrl(): string {
   const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
@@ -26,5 +36,5 @@ export function getPublicSiteUrl(): string {
 }
 
 export function githubRepoUrl(repo: string): string {
-  return `https://github.com/${GITHUB_OWNER}/${repo}`;
+  return `https://github.com/${GITHUB_PORTFOLIO_OWNER}/${repo}`;
 }
