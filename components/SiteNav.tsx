@@ -1,3 +1,4 @@
+import { ThemeControls } from "@/components/ThemeControls";
 import { contact, displayName } from "@/lib/site-content";
 
 const links = [
@@ -11,11 +12,11 @@ const links = [
 
 export function SiteNav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[color-mix(in_oklab,var(--foreground)_10%,transparent)] bg-[var(--header-bg)] backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-[color-mix(in_oklab,var(--background)_65%,transparent)]">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3.5 sm:gap-4 sm:px-6 sm:py-4">
+    <header className="sticky top-0 z-50 border-b border-[var(--border-medium)] bg-[var(--header-bg)] backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-[color-mix(in_oklab,var(--background)_65%,transparent)]">
+      <div className="page-container flex items-center justify-between gap-2 py-3 sm:gap-3 sm:py-4 md:gap-4">
         <a
           href="#top"
-          className="focus-ring transition-surface min-w-0 shrink truncate rounded-md font-[family-name:var(--font-syne)] text-sm font-semibold tracking-tight text-[var(--foreground)] hover:text-[var(--accent)]"
+          className="focus-ring transition-surface max-md:truncate min-w-0 shrink rounded-md py-1.5 font-[family-name:var(--font-syne)] text-sm font-semibold tracking-tight text-[var(--foreground)] hover:text-[var(--accent)] md:whitespace-normal md:py-2"
         >
           {displayName}
         </a>
@@ -28,24 +29,25 @@ export function SiteNav() {
             <a
               key={link.href}
               href={link.href}
-              className="focus-ring transition-surface whitespace-nowrap rounded-full px-2.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--muted)] hover:text-[var(--foreground)] sm:px-3 sm:tracking-[0.16em]"
+              className="focus-ring transition-surface rounded-full px-2.5 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--muted)] decoration-[var(--accent)] decoration-2 underline-offset-4 hover:text-[var(--foreground)] hover:underline sm:px-3 sm:text-[11px] sm:tracking-[0.16em]"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          <ThemeControls />
           <details className="relative md:hidden">
-            <summary className="focus-ring cursor-pointer list-none rounded-full border border-[color-mix(in_oklab,var(--foreground)_14%,transparent)] bg-[var(--surface)] px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--muted)] [&::-webkit-details-marker]:hidden [&::marker]:content-none">
-              Sections
+            <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center rounded-full border border-[var(--border-medium)] bg-[var(--surface)] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--muted)] [&::-webkit-details-marker]:hidden [&::marker]:content-none sm:text-[11px] sm:tracking-[0.16em]">
+              Menu
             </summary>
-            <div className="absolute right-0 z-50 mt-2 min-w-[12rem] rounded-xl border border-[color-mix(in_oklab,var(--foreground)_12%,transparent)] bg-[color-mix(in_oklab,var(--surface)_92%,transparent)] p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
+            <div className="absolute right-0 z-50 mt-2 min-w-[min(100vw-2rem,14rem)] max-w-[calc(100vw-2rem)] rounded-xl border border-[var(--border-medium)] bg-[color-mix(in_oklab,var(--surface)_94%,transparent)] p-2 shadow-[var(--shadow-elevated)] backdrop-blur-xl">
               {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="focus-ring transition-surface block rounded-lg px-3 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--muted)] hover:bg-[var(--surface-2)] hover:text-[var(--foreground)]"
+                  className="focus-ring transition-surface block min-h-11 rounded-lg px-3 py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--muted)] hover:bg-[var(--surface-2)] hover:text-[var(--foreground)]"
                 >
                   {link.label}
                 </a>
@@ -54,9 +56,9 @@ export function SiteNav() {
           </details>
           <a
             href={`mailto:${contact.email}`}
-            className="focus-ring transition-surface inline-flex items-center rounded-full border border-[color-mix(in_oklab,var(--foreground)_14%,transparent)] bg-[var(--surface)] px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--foreground)] hover:border-[color-mix(in_oklab,var(--accent)_55%,transparent)] hover:text-[var(--accent)] sm:px-4"
+            className="focus-ring transition-surface inline-flex min-h-11 items-center rounded-full border border-[var(--border-medium)] bg-[var(--surface)] px-3 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--foreground)] hover:border-[color-mix(in_oklab,var(--accent)_55%,transparent)] hover:text-[var(--accent)] sm:px-4 sm:text-[11px] sm:tracking-[0.18em]"
           >
-            Hire
+            Contact
           </a>
         </div>
       </div>

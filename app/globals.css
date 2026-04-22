@@ -1,16 +1,56 @@
 @import "tailwindcss";
 
+/* -------------------------------------------------------------------------- */
+/* Dark theme (default)                                                       */
+/* -------------------------------------------------------------------------- */
 :root {
-  --background: #060608;
+  color-scheme: dark;
+  --background: #050508;
   --foreground: #f4f1ea;
-  --muted: #a39e94;
-  --surface: #0c0d12;
-  --surface-2: #12141c;
+  --muted: #9d978c;
+  --surface: #0a0b10;
+  --surface-2: #10121a;
   --border: color-mix(in oklab, #ffffff 12%, transparent);
   --accent: #7cf4d6;
   --accent-2: #f6c177;
-  --glow: color-mix(in oklab, var(--accent) 35%, transparent);
-  --header-bg: color-mix(in oklab, var(--background) 78%, transparent);
+  --glow: color-mix(in oklab, var(--accent) 28%, transparent);
+  --header-bg: color-mix(in oklab, var(--background) 82%, transparent);
+  --foreground-muted: color-mix(in oklab, var(--foreground) 76%, transparent);
+  --foreground-subtle: color-mix(in oklab, var(--foreground) 64%, transparent);
+  --foreground-on-accent: #04110d;
+  --border-hairline: color-mix(in oklab, var(--foreground) 7%, transparent);
+  --border-medium: color-mix(in oklab, var(--foreground) 11%, transparent);
+  --border-strong: color-mix(in oklab, var(--foreground) 16%, transparent);
+  --grid-line: color-mix(in oklab, var(--foreground) 4.5%, transparent);
+  --shadow-elevated: 0 20px 64px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 22px 72px rgba(0, 0, 0, 0.55);
+  --footer-bg: color-mix(in oklab, var(--background) 88%, #000 12%);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #faf9f6;
+  --foreground: #111318;
+  --muted: #5c5f68;
+  --surface: #f1f0ec;
+  --surface-2: #e6e4dd;
+  --border: color-mix(in oklab, var(--foreground) 9%, transparent);
+  --accent: #0a7c66;
+  --accent-2: #a15c07;
+  --glow: color-mix(in oklab, var(--accent) 18%, transparent);
+  --header-bg: color-mix(in oklab, var(--background) 72%, #ffffff 28%);
+  --foreground-muted: color-mix(in oklab, var(--foreground) 72%, #ffffff 28%);
+  --foreground-subtle: color-mix(in oklab, var(--foreground) 58%, #ffffff 42%);
+  --foreground-on-accent: #fafaf8;
+  --border-hairline: color-mix(in oklab, var(--foreground) 8%, transparent);
+  --border-medium: color-mix(in oklab, var(--foreground) 12%, transparent);
+  --border-strong: color-mix(in oklab, var(--foreground) 18%, transparent);
+  --grid-line: color-mix(in oklab, var(--foreground) 6%, transparent);
+  --shadow-elevated: 0 12px 40px color-mix(in oklab, var(--foreground) 8%, transparent);
+  --shadow-card-hover: 0 18px 56px color-mix(in oklab, var(--foreground) 12%, transparent);
+  --footer-bg: color-mix(in oklab, var(--surface) 90%, var(--foreground) 10%);
 }
 
 @theme inline {
@@ -28,18 +68,34 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  html {
+    scroll-behavior: auto;
+  }
+
+  .site-backdrop {
+    animation: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-reveal-stagger > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal-stagger-grid > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
 html {
-  color-scheme: dark;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -47,27 +103,164 @@ html {
 }
 
 body {
-  background: radial-gradient(
-      1200px 800px at 10% -10%,
-      var(--glow),
-      transparent 55%
-    ),
-    radial-gradient(
-      900px 600px at 90% 0%,
-      color-mix(in oklab, var(--accent-2) 22%, transparent),
-      transparent 50%
-    ),
-    var(--background);
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+  line-height: 1.65;
+}
+
+.site-shell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  padding-left: max(0px, env(safe-area-inset-left));
+  padding-right: max(0px, env(safe-area-inset-right));
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+}
+
+/** Horizontal rhythm: mobile-first, then widen gutters. */
+.page-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+@media (min-width: 640px) {
+  .page-container {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    padding-left: max(1.75rem, env(safe-area-inset-left));
+    padding-right: max(1.75rem, env(safe-area-inset-right));
+  }
+}
+
+.site-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: var(--background);
+  background-image:
+    radial-gradient(
+      min(140vw, 2000px) min(90vh, 1200px) at 50% -18%,
+      color-mix(in oklab, var(--accent) 22%, transparent),
+      transparent 72%
+    ),
+    radial-gradient(
+      min(120vw, 1600px) min(85vh, 1000px) at 0% 35%,
+      color-mix(in oklab, var(--accent) 10%, transparent),
+      transparent 68%
+    ),
+    radial-gradient(
+      min(120vw, 1600px) min(85vh, 1000px) at 100% 25%,
+      color-mix(in oklab, var(--accent-2) 14%, transparent),
+      transparent 65%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 47px,
+      var(--grid-line) 47px,
+      var(--grid-line) 48px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 47px,
+      var(--grid-line) 47px,
+      var(--grid-line) 48px
+    );
+  background-blend-mode: normal, normal, normal, soft-light, soft-light;
+  mask-image: radial-gradient(ellipse 88% 72% at 50% 38%, black 18%, transparent 100%);
+}
+
+[data-theme="light"] .site-backdrop {
+  background-image:
+    radial-gradient(
+      min(130vw, 1800px) min(85vh, 1000px) at 50% -12%,
+      color-mix(in oklab, var(--accent) 12%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      min(100vw, 1400px) min(70vh, 800px) at 100% 20%,
+      color-mix(in oklab, var(--accent-2) 10%, transparent),
+      transparent 68%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 55px,
+      var(--grid-line) 55px,
+      var(--grid-line) 56px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 55px,
+      var(--grid-line) 55px,
+      var(--grid-line) 56px
+    );
+  mask-image: radial-gradient(ellipse 92% 75% at 50% 35%, black 25%, transparent 100%);
+}
+
+.site-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+[data-theme="light"] .site-backdrop::after {
+  opacity: 0.022;
+  mix-blend-mode: multiply;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes backdrop-drift {
+    0%,
+    100% {
+      transform: scale(1) translate3d(0, 0, 0);
+    }
+    50% {
+      transform: scale(1.012) translate3d(0.25%, 0.15%, 0);
+    }
+  }
+
+  .site-backdrop {
+    animation: backdrop-drift 56s ease-in-out infinite;
+  }
 }
 
 h1,
 h2,
 h3 {
   text-wrap: balance;
+  padding-bottom: 0.06em;
+  line-height: 1.14;
+}
+
+@media (min-width: 640px) {
+  h1,
+  h2,
+  h3 {
+    line-height: 1.16;
+  }
 }
 
 p {
@@ -75,13 +268,15 @@ p {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--accent) 35%, transparent);
-  color: #04110d;
+  background: color-mix(in oklab, var(--accent) 38%, transparent);
+  color: var(--foreground-on-accent);
 }
 
-/**
- * Keyboard focus: high-contrast outline (works everywhere; no ring plugin dependency).
- */
+[data-theme="light"] ::selection {
+  background: color-mix(in oklab, var(--accent) 28%, transparent);
+  color: var(--foreground);
+}
+
 .focus-ring {
   outline: none;
 }
@@ -91,23 +286,154 @@ p {
   outline-offset: 3px;
 }
 
-/** Smooth, accessible transitions (honors reduced-motion via media block above). */
 .transition-surface {
-  transition-property: color, background-color, border-color, box-shadow, transform;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-duration: 220ms;
+  transition-timing-function: var(--ease-spring);
 }
 
-@keyframes floaty {
-  0%,
-  100% {
-    transform: translateY(0);
+.reveal {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0) scale(0.992);
+    transition:
+      opacity 0.62s var(--ease-out-expo),
+      transform 0.62s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
   }
-  50% {
-    transform: translateY(-6px);
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  @media (prefers-contrast: more) {
+    .reveal:not(.is-visible) {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
-.animate-floaty {
-  animation: floaty 14s ease-in-out infinite;
+.reveal[data-stagger="1"] {
+  --reveal-delay: 60ms;
+}
+
+.reveal[data-stagger="2"] {
+  --reveal-delay: 120ms;
+}
+
+.reveal[data-stagger="3"] {
+  --reveal-delay: 180ms;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-reveal-stagger > * {
+    animation: hero-fade-up 0.72s var(--ease-out-expo) backwards;
+  }
+
+  .hero-reveal-stagger > *:nth-child(1) {
+    animation-delay: 0.02s;
+  }
+
+  .hero-reveal-stagger > *:nth-child(2) {
+    animation-delay: 0.07s;
+  }
+
+  .hero-reveal-stagger > *:nth-child(3) {
+    animation-delay: 0.12s;
+  }
+
+  .hero-reveal-stagger > *:nth-child(4) {
+    animation-delay: 0.17s;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (prefers-contrast: more) {
+  .hero-reveal-stagger > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grid-item-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > * {
+    animation: grid-item-rise 0.58s var(--ease-out-expo) backwards;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(1) {
+    animation-delay: 0.04s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(2) {
+    animation-delay: 0.09s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(3) {
+    animation-delay: 0.14s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(4) {
+    animation-delay: 0.19s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(5) {
+    animation-delay: 0.24s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(6) {
+    animation-delay: 0.29s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(7) {
+    animation-delay: 0.34s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(8) {
+    animation-delay: 0.39s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(9) {
+    animation-delay: 0.44s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(10) {
+    animation-delay: 0.49s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(11) {
+    animation-delay: 0.54s;
+  }
+
+  .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(12) {
+    animation-delay: 0.59s;
+  }
 }

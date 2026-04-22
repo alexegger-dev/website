@@ -1,6 +1,8 @@
 /**
- * Copy Next static export (out/) → docs/ for GitHub Pages when using
- * "Deploy from a branch" → main → /docs (repo root has no index.html).
+ * Copy Next static export (`out/`) → `docs/` for GitHub Pages when using
+ * **Deploy from a branch** → `main` → `/docs`.
+ *
+ * See root README.md: `docs/` is generated—run after `next build` via `npm run build:pages`.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -11,10 +13,14 @@ const outDir = path.join(root, "out");
 const docsDir = path.join(root, "docs");
 
 if (!fs.existsSync(path.join(outDir, "index.html"))) {
-  console.error("out/index.html missing — run `next build` first (npm run build).");
+  console.error(
+    "out/index.html missing — run `next build` first (npm run build).",
+  );
   process.exit(1);
 }
 
 fs.rmSync(docsDir, { recursive: true, force: true });
 fs.cpSync(outDir, docsDir, { recursive: true });
-console.log("Synced out/ → docs/. Commit and push docs/ for Pages (branch main, folder /docs).");
+console.log(
+  "Synced out/ → docs/. Commit and push docs/ for Pages (branch main, folder /docs).",
+);

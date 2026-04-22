@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# docs/ is generated (npm run build:pages) but tracked for GitHub Pages "branch → /docs".
+# If you switch to Actions-only deploy, add: /docs/
+
 # production
 /build
 

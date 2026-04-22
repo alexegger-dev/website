@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 import { getPublicSiteUrl } from "@/lib/site-config";
 import { displayName, headline, summary } from "@/lib/site-content";
 
@@ -25,11 +27,11 @@ const siteUrl = getPublicSiteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${displayName} — Founding engineer (AI platforms)`,
+    default: `${displayName} — Founding engineer · AI platforms`,
     template: `%s — ${displayName}`,
   },
   description: summary,
-  applicationName: `${displayName} hiring profile`,
+  applicationName: displayName,
   alternates: {
     canonical: "/",
   },
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: `${displayName} — hiring`,
+    siteName: displayName,
     title: `${displayName} — ${headline}`,
     description: summary,
   },
@@ -61,9 +63,19 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} h-full`}
+      suppressHydrationWarning
     >
-      <body className="flex min-h-dvh flex-col bg-[var(--background)] font-sans text-[var(--foreground)] antialiased">
-        {children}
+      <body className="min-h-dvh font-sans text-[var(--foreground)] antialiased">
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
+        />
+        <noscript>
+          <style>{`.reveal{opacity:1!important;transform:none!important}.hero-reveal-stagger>*{animation:none!important;opacity:1!important;transform:none!important}.reveal-stagger-grid>*{animation:none!important;opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+        <div className="site-backdrop" aria-hidden />
+        <div className="site-shell overflow-x-hidden">{children}</div>
       </body>
     </html>
   );

@@ -49,6 +49,9 @@ describe("site-content", () => {
   it("uses stable contact channels", () => {
     expect(contact.email).toContain("@");
     expect(contact.linkedinHref).toMatch(/^https:\/\//);
+    expect(contact.linkedinHref).toContain("alex-egger-3bb47037b");
+    expect(contact.linkedinLabel).toBe("LinkedIn");
+    expect(contact.location).toBe("Remote");
     expect(contact.githubHref).toBe(`https://github.com/${GITHUB_SITE_OWNER}`);
     expect(contact.phoneTel).toMatch(/^\+1\d{10}$/);
   });

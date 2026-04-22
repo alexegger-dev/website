@@ -4,22 +4,22 @@ export const displayName = "Alex Egger" as const;
 export const legalName = "Alexander Egger" as const;
 
 export const headline =
-  "Founding engineer shipping production AI platforms, gateways, and agent runtimes." as const;
+  "Founding engineer for production AI platforms—gateways, agent runtimes, and operational control." as const;
 
 export const tagline =
-  "Reliability and control planes around LLMs—not demo chatbots." as const;
+  "Reliability and control planes for production LLM systems—not slide-deck prototypes." as const;
 
 export const summary =
-  "Founding engineer with 3+ years shipping production AI and full-stack systems: LangGraph/LangChain RAG, multi-agent workflows, multi-tenant SaaS on AWS, and quantitative finance tooling. Python, TypeScript, PostgreSQL, Docker, and CI/CD end-to-end." as const;
+  "Founding engineer with 3+ years delivering production AI and full-stack systems: LangGraph and LangChain RAG, multi-agent workflows, multi-tenant SaaS on AWS, and quantitative finance tooling. Core stack: Python, TypeScript, PostgreSQL, Docker, and CI/CD." as const;
 
 export const contact = {
-  location: "Kansas City, MO",
+  location: "Remote",
   phone: "(816) 803-4671",
   /** E.164-style href for `tel:` links */
   phoneTel: "+18168034671",
   email: "alexegger224@gmail.com",
-  linkedinHref: "https://www.linkedin.com/in/alexegger224/",
-  linkedinLabel: "linkedin.com/in/alexegger224",
+  linkedinHref: "https://www.linkedin.com/in/alex-egger-3bb47037b/",
+  linkedinLabel: "LinkedIn",
   githubHref: `https://github.com/${GITHUB_SITE_OWNER}`,
   githubLabel: `github.com/${GITHUB_SITE_OWNER}`,
 } as const;
@@ -50,7 +50,7 @@ export const lanes: Lane[] = [
   {
     title: "Agent runtime & observability",
     description:
-      "Job isolation, cancel/deadlines, metrics, traces, policy graphs.",
+      "Job isolation, cancellation and deadlines, metrics, traces, and policy graphs.",
     repos: [
       {
         name: "agent-runtime-kernel",
@@ -241,7 +241,8 @@ export const portfolioRepos: PortfolioRepo[] = [
   },
   {
     slug: "incident-copilot",
-    pitch: "HITL incident workflow — interrupt/resume, mock mode for CI.",
+    pitch:
+      "HITL incident workflow—interrupt and resume, with mock mode for CI.",
   },
   {
     slug: "llm-traffic-controller",
