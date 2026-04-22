@@ -1,6 +1,10 @@
 # Portfolio website
 
-Recruiter-focused static site for **Alex Egger**. Content is derived from the sibling [`personal/`](../personal) repository (`resume.latex`, `GITHUB_PROFILE_README.md`) and the portfolio index in [`personal/README.md`](../personal/README.md).
+Recruiter-focused static site for **Alex Egger**. Copy in [`lib/site-content.ts`](lib/site-content.ts) is the source of truth for what appears on the page—keep it aligned with your public resume and GitHub profile when you update your story.
+
+## Privacy & public content
+
+This site intentionally includes **professional contact information** (email, phone, links) for hiring workflows. There are **no API keys or private credentials** in the repository; build-time settings are public URL overrides only (see [`.env.example`](.env.example)). See [`SECURITY.md`](SECURITY.md) for how to report security concerns.
 
 ## Requirements
 
@@ -24,10 +28,10 @@ This app is designed to live in its **own GitHub repository** (recommended name:
 
 Workflows:
 
-| File | Purpose |
-|------|---------|
-| [`.github/workflows/ci.yml`](.github/workflows/ci.yml) | Every push/PR: `npm ci`, lint, tests, production build with the same `NEXT_PUBLIC_*` env as Pages, then verifies `out/index.html` and `out/_next`. |
-| [`.github/workflows/pages.yml`](.github/workflows/pages.yml) | On push to **`main`**: static export, upload artifact, deploy with **`actions/deploy-pages`**. |
+| File                                                         | Purpose                                                                                                                                            |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`.github/workflows/ci.yml`](.github/workflows/ci.yml)       | Every push/PR: `npm ci`, lint, tests, production build with the same `NEXT_PUBLIC_*` env as Pages, then verifies `out/index.html` and `out/_next`. |
+| [`.github/workflows/pages.yml`](.github/workflows/pages.yml) | On push to **`main`**: static export, upload artifact, deploy with **`actions/deploy-pages`**.                                                     |
 
 ### One-time GitHub settings
 
@@ -41,14 +45,14 @@ Update **`SITE_REPO_SLUG`** in [`lib/site-config.ts`](lib/site-config.ts) so `DE
 
 ### Custom domain or site at domain root
 
-Set repository **Variables** (or **Secrets**) for Actions if you need overrides, or fork the workflow `env` block:
+Use repository **Variables** for Actions if you need overrides, or edit the workflow `env` block:
 
 - Omit or clear **`NEXT_PUBLIC_BASE_PATH`** when the app is served at `/` (not under `/<repo>/`).
 - Set **`NEXT_PUBLIC_SITE_URL`** to your canonical `https://…` origin.
 
 ### Resume source link
 
-The hero links to LaTeX source via **`PERSONAL_REPO_SLUG`** in `lib/site-config.ts` (defaults to `personal`). Adjust if your resume lives elsewhere.
+The hero links to LaTeX source via **`PERSONAL_REPO_SLUG`** in `lib/site-config.ts` (defaults to `personal`). Point it at a **public** repository path you control; avoid private or internal-only URLs.
 
 ### Embedded in a monorepo
 

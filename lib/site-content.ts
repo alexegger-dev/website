@@ -7,7 +7,7 @@ export const headline =
   "Founding engineer shipping production AI platforms, gateways, and agent runtimes." as const;
 
 export const tagline =
-  "Reliability and control planes around LLMs—not demo chatbots." as const;
+  "Reliability and control planes around LLMs—built for production, not prototypes." as const;
 
 export const summary =
   "Founding engineer with 3+ years shipping production AI and full-stack systems: LangGraph/LangChain RAG, multi-agent workflows, multi-tenant SaaS on AWS, and quantitative finance tooling. Python, TypeScript, PostgreSQL, Docker, and CI/CD end-to-end." as const;
@@ -36,7 +36,10 @@ export const lanes: Lane[] = [
     description:
       "OpenAI-compatible edge, policies, breakers, failover, idempotency, streaming backpressure.",
     repos: [
-      { name: "llm-traffic-controller", href: githubRepoUrl("llm-traffic-controller") },
+      {
+        name: "llm-traffic-controller",
+        href: githubRepoUrl("llm-traffic-controller"),
+      },
     ],
   },
   {
@@ -46,10 +49,17 @@ export const lanes: Lane[] = [
   },
   {
     title: "Agent runtime & observability",
-    description: "Job isolation, cancel/deadlines, metrics, traces, policy graphs.",
+    description:
+      "Job isolation, cancel/deadlines, metrics, traces, policy graphs.",
     repos: [
-      { name: "agent-runtime-kernel", href: githubRepoUrl("agent-runtime-kernel") },
-      { name: "supervisor-squad-trace", href: githubRepoUrl("supervisor-squad-trace") },
+      {
+        name: "agent-runtime-kernel",
+        href: githubRepoUrl("agent-runtime-kernel"),
+      },
+      {
+        name: "supervisor-squad-trace",
+        href: githubRepoUrl("supervisor-squad-trace"),
+      },
       { name: "policy-graph-guard", href: githubRepoUrl("policy-graph-guard") },
     ],
   },
@@ -68,23 +78,28 @@ export const metrics: Metric[] = [
   },
   {
     label: "99.9% uptime",
-    detail: "AWS (EC2/S3/ECS) with CI/CD via GitHub Actions and disciplined reliability work.",
+    detail:
+      "AWS (EC2/S3/ECS) with CI/CD via GitHub Actions and disciplined reliability work.",
   },
   {
     label: "~40% less repetitive engineering",
-    detail: "Internal agent DAGs for codegen, testing, and deployment automation.",
+    detail:
+      "Internal agent DAGs for codegen, testing, and deployment automation.",
   },
   {
     label: "30–40% alpha lift (backtests)",
-    detail: "Options analytics platform: model-driven signal refinement and automated reporting.",
+    detail:
+      "Options analytics platform: model-driven signal refinement and automated reporting.",
   },
   {
     label: "Invoices: 5 days → <24h",
-    detail: "OCR + validation pipeline cutting payment cycles for automation clients.",
+    detail:
+      "OCR + validation pipeline cutting payment cycles for automation clients.",
   },
   {
     label: "30+ hours/week saved",
-    detail: "Multi-step n8n workflows for lead intake and CRM sync at consultant scale.",
+    detail:
+      "Multi-step n8n workflows for lead intake and CRM sync at consultant scale.",
   },
 ];
 
@@ -150,7 +165,12 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     title: "Languages",
-    items: ["Python", "TypeScript/JavaScript", "SQL (PostgreSQL, MySQL)", "Rust"],
+    items: [
+      "Python",
+      "TypeScript/JavaScript",
+      "SQL (PostgreSQL, MySQL)",
+      "Rust",
+    ],
   },
   {
     title: "AI/ML & LLMs",
@@ -190,7 +210,8 @@ export const skillGroups: SkillGroup[] = [
 
 export const education = {
   school: "Park University",
-  detail: "Graduate coursework toward M.B.A., Finance concentration — Parkville, MO",
+  detail:
+    "Graduate coursework toward M.B.A., Finance concentration — Parkville, MO",
 } as const;
 
 export const certifications = [
@@ -215,7 +236,8 @@ export const portfolioRepos: PortfolioRepo[] = [
   },
   {
     slug: "rolefit-coach",
-    pitch: "Role Fit Coach — SvelteKit BFF, JWT httpOnly cookie, SSE LangGraph coach, Postgres.",
+    pitch:
+      "Role Fit Coach — SvelteKit BFF, JWT httpOnly cookie, SSE LangGraph coach, Postgres.",
   },
   {
     slug: "incident-copilot",
@@ -238,7 +260,8 @@ export const portfolioRepos: PortfolioRepo[] = [
   },
   {
     slug: "supervisor-squad-trace",
-    pitch: "Supervisor squad with trace export (NDJSON + optional OTLP) and a small Next.js console.",
+    pitch:
+      "Supervisor squad with trace export (NDJSON + optional OTLP) and a small Next.js console.",
   },
   {
     slug: "invoice-reconcile-pipeline",
@@ -257,7 +280,7 @@ export const portfolioRepos: PortfolioRepo[] = [
   {
     slug: "policy-graph-guard",
     pitch:
-      "LangGraph policy DAG around chat: PII/topic/tools/injection pre, LLM, JSON schema + secret post; MOCK + strict; OpenAPI.",
+      "LangGraph policy DAG around chat: PII/topic/tool-use and injection checks pre-LLM, JSON schema post-LLM, guarded outputs; MOCK + strict; OpenAPI.",
   },
   {
     slug: "llm-cost-guard",
@@ -294,7 +317,7 @@ export const featuredProjects = [
 ] as const;
 
 export function allGithubRepoHrefs(): string[] {
-  const laneHrefs = lanes.flatMap((l) => l.repos.map((r) => r.href));
-  const portfolioHrefs = portfolioRepos.map((r) => githubRepoUrl(r.slug));
+  const laneHrefs = lanes.flatMap(l => l.repos.map(r => r.href));
+  const portfolioHrefs = portfolioRepos.map(r => githubRepoUrl(r.slug));
   return [...new Set([...laneHrefs, ...portfolioHrefs, contact.githubHref])];
 }
