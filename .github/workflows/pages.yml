@@ -39,7 +39,10 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
 
       - name: Verify static export
-        run: test -f out/index.html && test -d out/_next
+        run: |
+          test -f out/index.html
+          test -d out/_next
+          test -f out/.nojekyll || (echo "missing out/.nojekyll (should be copied from public/)" && exit 1)
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

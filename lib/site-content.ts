@@ -7,7 +7,7 @@ export const headline =
   "Founding engineer shipping production AI platforms, gateways, and agent runtimes." as const;
 
 export const tagline =
-  "Reliability and control planes around LLMs—built for production, not prototypes." as const;
+  "Reliability and control planes around LLMs—not demo chatbots." as const;
 
 export const summary =
   "Founding engineer with 3+ years shipping production AI and full-stack systems: LangGraph/LangChain RAG, multi-agent workflows, multi-tenant SaaS on AWS, and quantitative finance tooling. Python, TypeScript, PostgreSQL, Docker, and CI/CD end-to-end." as const;
