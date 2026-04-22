@@ -1,53 +1,46 @@
-# website
+# j2-projects
 
-Static hiring profile (**Next.js** App Router, **`output: "export"`**, **Tailwind CSS v4**). Live repo: **[alexegger-dev/website](https://github.com/alexegger-dev/website)** → **https://alexegger-dev.github.io/website/**
+Collection of reference implementations for interviews and public GitHub. Each subdirectory is intended to ship as its **own** repository (not a monorepo product). Layout mirrors production habits: FastAPI + LangGraph + Next/Svelte where relevant, Docker Compose, pytest/ruff, and GitHub Actions.
 
-## Repository layout
+## Three-lane story (AI platform / infra)
 
-| Path                                                                       | Purpose                                                                  |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [`app/`](app/)                                                             | Routes, layout, global styles, theme init                                |
-| [`components/`](components/)                                               | UI sections, nav, footer, theme toggle, reveal animation                 |
-| [`lib/site-content.ts`](lib/site-content.ts)                               | Copy, metrics, experience, repos (single source of truth for page text)  |
-| [`lib/site-config.ts`](lib/site-config.ts)                                 | GitHub owners, Pages URL defaults, resume link helper                    |
-| [`lib/theme.ts`](lib/theme.ts)                                             | Light / dark / system preference, storage key, before-paint init script  |
-| [`scripts/sync-github-pages-docs.mjs`](scripts/sync-github-pages-docs.mjs) | Copies `out/` → **`docs/`** for branch-based GitHub Pages                |
-| [`docs/`](docs/)                                                           | **Generated** static site (see below)—do not hand-edit                   |
-| [`.github/workflows/`](.github/workflows/)                                 | CI (lint, test, build, verify `docs/`) and optional Actions Pages deploy |
+Use this framing on your GitHub profile and in interviews: you build **reliability and control planes** around LLMs—not demo chatbots.
 
-## Commands
+| Lane                              | What it proves                                                                            | Lead repos                                                                                                                               |
+| --------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Gateway & reliability**         | OpenAI-compatible edge, policies, breakers, failover, idempotency, streaming backpressure | [llm-traffic-controller](llm-traffic-controller)                                                                                         |
+| **FinOps & tenancy**              | Metering, budgets, operator UI, guarded client                                            | [llm-cost-guard](llm-cost-guard)                                                                                                         |
+| **Agent runtime & observability** | Job isolation, cancel/deadlines, metrics, traces                                          | [agent-runtime-kernel](agent-runtime-kernel), [supervisor-squad-trace](supervisor-squad-trace), [policy-graph-guard](policy-graph-guard) |
 
-- `npm ci` — install from lockfile
-- `npm run dev` — local dev server
-- `npm run lint` / `npm run test` — quality gates
-- `npm run build` — static export to **`out/`**
-- `npm run build:pages` — `next build` then sync **`out/` → `docs/`** (use when publishing via **Settings → Pages → Branch `main` → `/docs`**)
+**Suggested GitHub pin order (six):** `llm-traffic-controller` → `llm-cost-guard` → `agent-runtime-kernel` → `supervisor-squad-trace` → `policy-graph-guard` → `scout` (Rust differentiator). Keep other strong work public, but let pins tell the story first.
 
-Requires **Node 22** (see [`.nvmrc`](.nvmrc)).
+**Curation note:** Prefer pins + a clear profile README over deleting history. If you archive older demos, keep at least one repo per lane above so the narrative stays coherent.
 
-## About `docs/` (and `_next`, `__next*.txt`)
+Optional GitHub profile template (for `github.com/<user>/<user>`): [GITHUB_PROFILE_README.md](GITHUB_PROFILE_README.md).
 
-The **`docs/`** folder is a **verbatim copy of `out/`** from `next build`. It exists so you can use **“Deploy from a branch” → `main` → `/docs`** on GitHub Pages without Actions.
+## Index (curated for a public profile)
 
-Inside you will see:
+These **12** are the primary story for hiring managers; each maps to a different interview angle. **Badge URLs and profile links** must match your actual GitHub `OWNER/REPO`—rename the remote repository or update every README badge if the slug differs.
 
-- **`_next/`** — compiled JavaScript, CSS, and manifests (required for the site to run).
-- **`__next*.txt`**, **`index.txt`**, **`\_not-found/**`** — Next.js App Router **static export payloads\*\* (required for routing/hydration).
+| Directory                                                | Public repo name (match on GitHub) | One-line pitch                                                                                                                              |
+| -------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| [langgraph-rag-workbench](langgraph-rag-workbench)       | `langgraph-rag-workbench`          | RAG + supervisor codegen; NDJSON streaming; **`RAG_WORKBENCH_MOCK=1`** runs the UI without OpenAI spend.                                    |
+| [rolefit-coach](rolefit-coach)                           | `rolefit-coach`                    | Role Fit Coach — SvelteKit BFF, JWT httpOnly cookie, SSE LangGraph coach, Postgres.                                                         |
+| [incident-copilot](incident-copilot)                     | `incident-copilot`                 | HITL incident workflow — `interrupt` / resume, mock mode for CI.                                                                            |
+| [llm-traffic-controller](llm-traffic-controller)         | `llm-traffic-controller`           | OpenAI-compatible **gateway**: YAML policies, retries, circuit breakers, dual upstreams, idempotency hooks, Postgres metering, Prometheus.  |
+| [agent-runtime-kernel](agent-runtime-kernel)             | `agent-runtime-kernel`             | Multi-tenant **job runtime** for LangGraph: scheduler, cancel, deadlines, sandboxed tools, `/metrics`.                                      |
+| [horizon-task-decomposer](horizon-task-decomposer)       | `horizon-task-decomposer`          | Plan → validate → execute → verify over a JSON task DAG; HMAC approvals; NDJSON; **`HORIZON_MOCK`** offline path.                           |
+| [supervisor-squad-trace](supervisor-squad-trace)         | `supervisor-squad-trace`           | Supervisor squad with **trace export** (NDJSON + optional OTLP) and a small Next.js console.                                                |
+| [invoice-reconcile-pipeline](invoice-reconcile-pipeline) | `invoice-reconcile-pipeline`       | AP demo: PDF + CSV PO → **arq** worker, **rapidfuzz** explainable matches, exception queue, Postgres audit; FastAPI + Next.js + Compose.    |
+| [scout](scout)                                           | `scout`                            | Rust TUI agent — allowlisted HTTP, optional LLM planner.                                                                                    |
+| [workflow-contract-bridge](workflow-contract-bridge)     | `workflow-contract-bridge`         | Versioned JSON Schema webhook ingress; dead letters + replay; transactional outbox; FastAPI + SvelteKit admin.                              |
+| [policy-graph-guard](policy-graph-guard)                 | `policy-graph-guard`               | LangGraph policy DAG around chat: PII/topic/tools/injection pre, LLM, JSON schema + secret post; MOCK + strict; OpenAPI.                    |
+| [llm-cost-guard](llm-cost-guard)                         | `llm-cost-guard`                   | Multi-tenant LLM **metering + daily USD budgets**; Postgres, guarded OpenAI client, Next.js ops UI, LangGraph demo; prompts off by default. |
 
-**Do not delete those from a published tree** and do not hand-edit them. Regenerate with `npm run build:pages` (or CI) after app changes. To **avoid committing** build output, switch Pages to **GitHub Actions** only (see [`.github/workflows/pages.yml`](.github/workflows/pages.yml)) and add **`docs/`** to `.gitignore`—trade-off is you no longer use branch `/docs`.
-
-## GitHub Pages
-
-1. **Project URL:** `https://<owner>.github.io/<repo>/` (this repo: `alexegger-dev` / `website`).
-2. **Either** branch **`main` + `/docs`** (commit regenerated **`docs/`**) **or** **GitHub Actions** artifact deploy—see workflow comments in [`pages.yml`](.github/workflows/pages.yml).
-3. **`public/.nojekyll`** is copied into `out/` / `docs/` so Jekyll does not ignore `_next/`.
-
-## Configuration
-
-- **[`.env.example`](.env.example)** — `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_BASE_PATH` (build-time only; no secrets).
-- **[`SECURITY.md`](SECURITY.md)** — reporting and scope.
+**Additional portfolio repositories** (same bar, shorter index): [adversarial-debate-judge](adversarial-debate-judge), [agent-eval-harness](agent-eval-harness), [langgraph-spec-runner](langgraph-spec-runner), [langgraph-dag-console](langgraph-dag-console), [mcp-tools-langgraph](mcp-tools-langgraph), [tool-router-bench](tool-router-bench), [vol-surface-lab](vol-surface-lab).
 
 ## Conventions
 
-- Prefer editing **`lib/site-content.ts`** for copy and repo lists; **`lib/site-config.ts`** for GitHub URLs and Pages defaults.
-- **`eslint.config.mjs`** ignores **`docs/`** and **`out/`** (generated output).
+- **Python:** `uv`, `uv.lock`, ruff + pytest in CI.
+- **Node:** **22 LTS** in CI and docs where a frontend exists; **Node 20+** is generally still expected to work—pin in each repo if you need a floor.
+- **Secrets:** never commit `.env`; `.env.example` documents variables only. Never paste real API keys into docs—use a secrets manager or `export OPENAI_API_KEY=…` in your own shell. Treat every `dev-change-me` / `openssl rand` example as **local-only**.

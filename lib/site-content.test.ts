@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  absoluteSiteUrl,
   DEFAULT_SITE_URL,
   GITHUB_PORTFOLIO_OWNER,
   GITHUB_SITE_OWNER,
@@ -11,6 +12,7 @@ import {
   contact,
   lanes,
   portfolioRepos,
+  selectedCases,
 } from "./site-content";
 
 const portfolioRepoPattern = new RegExp(
@@ -28,6 +30,28 @@ describe("site-content", () => {
     for (const repo of portfolioRepos) {
       expect(githubRepoUrl(repo.slug)).toMatch(portfolioRepoPattern);
     }
+  });
+
+  it("keeps portfolio repo titles and tag lists scannable", () => {
+    for (const repo of portfolioRepos) {
+      expect(repo.title.trim().length).toBeGreaterThan(2);
+      if (repo.tags) {
+        expect(repo.tags.length).toBeGreaterThan(0);
+        expect(repo.tags.length).toBeLessThanOrEqual(3);
+      }
+    }
+  });
+
+  it("links selected cases on the portfolio owner", () => {
+    for (const item of selectedCases) {
+      expect(githubRepoUrl(item.slug)).toMatch(portfolioRepoPattern);
+    }
+  });
+
+  it("builds absolute asset URLs for OG metadata", () => {
+    const u = absoluteSiteUrl("/opengraph-image");
+    expect(u.startsWith("https://")).toBe(true);
+    expect(u.endsWith("/opengraph-image")).toBe(true);
   });
 
   it("keeps lane repository links on the portfolio owner", () => {

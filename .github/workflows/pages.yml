@@ -47,6 +47,9 @@ jobs:
           test -f out/.nojekyll
           grep -q "_next" out/index.html
 
+      - name: Export HTML integrity
+        run: npm run verify:export
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:

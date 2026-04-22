@@ -30,9 +30,20 @@ export const RESUME_SOURCE_HREF =
 export function getPublicSiteUrl(): string {
   const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
   if (raw) {
-    return raw.replace(/\/$/, "");
+    return raw.replace(/\/+$/, "");
   }
   return DEFAULT_SITE_URL;
+}
+
+/**
+ * Absolute URL for a site path beginning with `/` (e.g. `/opengraph-image`).
+ * Uses `NEXT_PUBLIC_SITE_URL` as the deployment root (for GitHub project Pages this
+ * already includes the repo segment, e.g. `https://owner.github.io/repo`).
+ */
+export function absoluteSiteUrl(path: string): string {
+  const base = getPublicSiteUrl();
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${normalized}`;
 }
 
 export function githubRepoUrl(repo: string): string {

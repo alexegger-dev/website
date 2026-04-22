@@ -3,6 +3,7 @@ import { ExperienceSection } from "@/components/ExperienceSection";
 import { Hero } from "@/components/Hero";
 import { LanesSection } from "@/components/LanesSection";
 import { ProofSection } from "@/components/ProofSection";
+import { SelectedCasesSection } from "@/components/SelectedCasesSection";
 import { ReposSection } from "@/components/ReposSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <LanesSection />
         <ProofSection />
+        <SelectedCasesSection />
         <ExperienceSection />
         <SkillsSection />
         <EducationSection />

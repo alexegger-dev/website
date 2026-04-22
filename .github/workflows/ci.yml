@@ -32,6 +32,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Typecheck
+        run: npm run typecheck
+
       - name: Unit tests
         run: npm run test
 
@@ -48,6 +51,9 @@ jobs:
           test -f out/.nojekyll
           grep -q "_next" out/index.html
 
+      - name: Export HTML integrity (out/ — sections, .nojekyll, display name)
+        run: npm run verify:export
+
       - name: Sync docs (branch-based Pages)
         run: node ./scripts/sync-github-pages-docs.mjs
 
@@ -56,3 +62,6 @@ jobs:
           test -f docs/index.html
           test -d docs/_next
           test -f docs/.nojekyll
+
+      - name: Docs HTML integrity (docs/ after sync)
+        run: npm run verify:docs

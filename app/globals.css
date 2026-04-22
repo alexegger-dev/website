@@ -22,8 +22,9 @@
   --border-medium: color-mix(in oklab, var(--foreground) 11%, transparent);
   --border-strong: color-mix(in oklab, var(--foreground) 16%, transparent);
   --grid-line: color-mix(in oklab, var(--foreground) 4.5%, transparent);
-  --shadow-elevated: 0 20px 64px rgba(0, 0, 0, 0.5);
-  --shadow-card-hover: 0 22px 72px rgba(0, 0, 0, 0.55);
+  /* Softer than raw rgba(0,0,0): lifts cards without a muddy halo on #050508. */
+  --shadow-elevated: 0 18px 56px color-mix(in oklab, #000 48%, transparent);
+  --shadow-card-hover: 0 22px 72px color-mix(in oklab, #000 54%, transparent);
   --footer-bg: color-mix(in oklab, var(--background) 88%, #000 12%);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
@@ -41,7 +42,8 @@
   --surface-2: #e6e4dd;
   --border: color-mix(in oklab, var(--foreground) 9%, transparent);
   --accent: #0a7c66;
-  --accent-2: #a15c07;
+  /* Darker amber for small uppercase labels on warm paper (contrast). */
+  --accent-2: #6a4010;
   --glow: color-mix(in oklab, var(--accent) 18%, transparent);
   --header-bg: color-mix(in oklab, var(--background) 72%, #ffffff 28%);
   --foreground-muted: color-mix(in oklab, var(--foreground) 72%, #ffffff 28%);
@@ -96,6 +98,10 @@
     opacity: 1 !important;
     transform: none !important;
   }
+
+  .btn-primary-cta {
+    animation: none !important;
+  }
 }
 
 html {
@@ -103,16 +109,27 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent iOS landscape / system font bumps from reflowing layout. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Avoid rare horizontal bleed from transforms, vw gradients, or off-canvas UI. */
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   min-height: 100dvh;
+  overflow-x: clip;
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
   line-height: 1.65;
+}
+
+/* Themed tap highlight (avoids opaque gray rectangles on mobile). */
+:where(a, button, summary, [role="button"]) {
+  -webkit-tap-highlight-color: color-mix(in oklab, var(--accent) 20%, transparent);
 }
 
 .site-shell {
@@ -440,5 +457,63 @@ p {
 
   .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(12) {
     animation-delay: 0.36s;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Editorial body (hero + lane narratives)                                    */
+/* -------------------------------------------------------------------------- */
+.text-editorial {
+  font-size: clamp(0.875rem, 0.82rem + 0.22vw, 1.02rem);
+  line-height: 1.72;
+}
+
+/**
+ * Short dates / mono labels — full accent-2 (see light theme token for contrast).
+ * For multi-line attribution, use `.text-scope` instead.
+ */
+.chip-date {
+  color: var(--accent-2);
+}
+
+/** Longer footnotes (e.g. metric scope): warm tint without full amber saturation. */
+.text-scope {
+  color: color-mix(in oklab, var(--accent-2) 28%, var(--foreground-muted));
+}
+
+[data-theme="light"] .text-scope {
+  color: color-mix(in oklab, var(--accent-2) 22%, var(--foreground-muted));
+}
+
+@media (prefers-contrast: more) {
+  .text-scope {
+    color: var(--foreground-muted);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Primary CTA — subtle recurring glow (respects reduced motion below)        */
+/* -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes cta-glow-pulse {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 0 color-mix(in oklab, var(--accent) 0%, transparent),
+        0 10px 36px color-mix(in oklab, var(--accent) 22%, transparent);
+    }
+    50% {
+      box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--accent) 35%, transparent),
+        0 14px 44px color-mix(in oklab, var(--accent) 30%, transparent);
+    }
+  }
+
+  .btn-primary-cta {
+    animation: cta-glow-pulse 3.6s ease-in-out infinite;
+  }
+
+  .btn-primary-cta:hover {
+    animation: none;
   }
 }

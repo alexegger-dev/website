@@ -6,14 +6,14 @@ export function SkillsSection() {
     <Section
       id="stack"
       eyebrow="Stack"
-      title="Technical stack"
-      description="Languages, models, and infrastructure aligned with production ownership—not slideware."
+      title="Tools I ship with"
+      description="Languages, models, and infrastructure I use in production systems—what you see on GitHub is what runs in the wild."
     >
-      <div className="reveal-stagger-grid grid gap-4 sm:gap-5 md:grid-cols-2">
+      <div className="reveal-stagger-grid grid min-w-0 gap-4 sm:gap-5 md:grid-cols-2">
         {skillGroups.map((group) => (
           <div
             key={group.title}
-            className="rounded-2xl border border-[var(--border-medium)] bg-[var(--surface-2)] p-5 shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)] sm:p-6"
+            className="min-w-0 rounded-2xl border border-[var(--border-medium)] bg-[var(--surface-2)] p-5 shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)] sm:p-6"
           >
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{group.title}</h3>
             <div className="mt-4 flex flex-wrap gap-2">

@@ -61,7 +61,7 @@ export function ThemeControls() {
     <button
       type="button"
       onClick={cycle}
-      className="focus-ring transition-surface flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--border-medium)] bg-[var(--surface)] text-[var(--foreground)] hover:border-[color-mix(in_oklab,var(--accent)_45%,transparent)] hover:text-[var(--accent)]"
+      className="focus-ring transition-surface flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full border border-[var(--border-medium)] bg-[var(--surface)] text-[var(--foreground)] hover:border-[color-mix(in_oklab,var(--accent)_45%,transparent)] hover:text-[var(--accent)]"
       aria-label={label}
       title={label}
     >

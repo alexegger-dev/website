@@ -4,6 +4,7 @@ import { contact, displayName } from "@/lib/site-content";
 const links = [
   { href: "#narrative", label: "Narrative" },
   { href: "#proof", label: "Proof" },
+  { href: "#cases", label: "Cases" },
   { href: "#experience", label: "Experience" },
   { href: "#stack", label: "Stack" },
   { href: "#education", label: "Education" },
@@ -29,7 +30,7 @@ export function SiteNav() {
             <a
               key={link.href}
               href={link.href}
-              className="focus-ring transition-surface rounded-full px-2.5 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--muted)] decoration-[var(--accent)] decoration-2 underline-offset-4 hover:text-[var(--foreground)] hover:underline sm:px-3 sm:text-[11px] sm:tracking-[0.16em]"
+              className="focus-ring transition-surface inline-flex min-h-10 items-center rounded-full px-2.5 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--muted)] decoration-[var(--accent)] decoration-2 underline-offset-4 hover:text-[var(--foreground)] hover:underline sm:min-h-9 sm:px-3 sm:text-[11px] sm:tracking-[0.16em]"
             >
               {link.label}
             </a>
@@ -42,12 +43,12 @@ export function SiteNav() {
             <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center rounded-full border border-[var(--border-medium)] bg-[var(--surface)] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--muted)] [&::-webkit-details-marker]:hidden [&::marker]:content-none sm:text-[11px] sm:tracking-[0.16em]">
               Menu
             </summary>
-            <div className="absolute right-0 z-50 mt-2 min-w-[min(100vw-2rem,14rem)] max-w-[calc(100vw-2rem)] rounded-xl border border-[var(--border-medium)] bg-[color-mix(in_oklab,var(--surface)_94%,transparent)] p-2 shadow-[var(--shadow-elevated)] backdrop-blur-xl">
+            <div className="absolute end-0 z-50 mt-2 min-w-[min(100vw-2rem,14rem)] max-w-[min(100vw-2rem,calc(100dvw-env(safe-area-inset-left)-env(safe-area-inset-right)-1.5rem))] rounded-xl border border-[var(--border-medium)] bg-[color-mix(in_oklab,var(--surface)_94%,transparent)] p-2 shadow-[var(--shadow-elevated)] backdrop-blur-xl">
               {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="focus-ring transition-surface block min-h-11 rounded-lg px-3 py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--muted)] hover:bg-[var(--surface-2)] hover:text-[var(--foreground)]"
+                  className="focus-ring transition-surface flex min-h-11 w-full touch-manipulation items-center rounded-lg px-3 py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--muted)] hover:bg-[var(--surface-2)] hover:text-[var(--foreground)]"
                 >
                   {link.label}
                 </a>
@@ -56,7 +57,7 @@ export function SiteNav() {
           </details>
           <a
             href={`mailto:${contact.email}`}
-            className="focus-ring transition-surface inline-flex min-h-11 items-center rounded-full border border-[var(--border-medium)] bg-[var(--surface)] px-3 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--foreground)] hover:border-[color-mix(in_oklab,var(--accent)_55%,transparent)] hover:text-[var(--accent)] sm:px-4 sm:text-[11px] sm:tracking-[0.18em]"
+            className="focus-ring transition-surface inline-flex min-h-11 touch-manipulation items-center rounded-full border border-[var(--border-medium)] bg-[var(--surface)] px-3 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--foreground)] hover:border-[color-mix(in_oklab,var(--accent)_55%,transparent)] hover:text-[var(--accent)] sm:px-4 sm:text-[11px] sm:tracking-[0.18em]"
           >
             Contact
           </a>

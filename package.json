@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:pages": "next build && node ./scripts/sync-github-pages-docs.mjs",
+    "build:pages": "next build && npm run verify:export && node ./scripts/sync-github-pages-docs.mjs && npm run verify:docs",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "verify:export": "node ./scripts/verify-export-integrity.mjs out",
+    "verify:docs": "node ./scripts/verify-export-integrity.mjs docs"
   },
   "dependencies": {
     "next": "16.2.4",

@@ -1,4 +1,4 @@
-import { contact, displayName, legalName } from "@/lib/site-content";
+import { careerIntent, contact, displayName, legalName } from "@/lib/site-content";
 
 export function SiteFooter() {
   return (
@@ -9,16 +9,17 @@ export function SiteFooter() {
           <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
             Legal name {legalName} · {contact.location}
           </p>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-[var(--foreground-muted)]">{careerIntent}</p>
         </div>
-        <div className="flex min-w-0 flex-col gap-3 text-sm">
+        <div className="flex min-w-0 flex-col gap-1 text-sm sm:gap-3">
           <a
-            className="focus-ring transition-surface break-all text-[var(--foreground)] hover:text-[var(--accent)]"
+            className="focus-ring transition-surface inline-flex min-h-11 touch-manipulation items-center break-all py-1 text-[var(--foreground)] hover:text-[var(--accent)] sm:min-h-0 sm:py-0"
             href={`mailto:${contact.email}`}
           >
             {contact.email}
           </a>
           <a
-            className="focus-ring transition-surface text-[var(--foreground)] hover:text-[var(--accent)]"
+            className="focus-ring transition-surface inline-flex min-h-11 touch-manipulation items-center py-1 text-[var(--foreground)] hover:text-[var(--accent)] sm:min-h-0 sm:py-0"
             href={contact.linkedinHref}
             target="_blank"
             rel="noopener noreferrer"
@@ -26,7 +27,7 @@ export function SiteFooter() {
             {contact.linkedinLabel}
           </a>
           <a
-            className="focus-ring transition-surface break-all text-[var(--foreground)] hover:text-[var(--accent)]"
+            className="focus-ring transition-surface inline-flex min-h-11 touch-manipulation items-center break-all py-1 text-[var(--foreground)] hover:text-[var(--accent)] sm:min-h-0 sm:py-0"
             href={contact.githubHref}
             target="_blank"
             rel="noopener noreferrer"

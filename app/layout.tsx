@@ -3,8 +3,8 @@ import Script from "next/script";
 import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
-import { getPublicSiteUrl } from "@/lib/site-config";
-import { displayName, headline, summary } from "@/lib/site-content";
+import { absoluteSiteUrl, getPublicSiteUrl } from "@/lib/site-config";
+import { contact, displayName, headline, legalName, summary } from "@/lib/site-content";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +23,24 @@ const syne = Syne({
 });
 
 const siteUrl = getPublicSiteUrl();
+const ogImageUrl = absoluteSiteUrl("/opengraph-image");
+const ogImageAlt = `${displayName} — portfolio`;
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: displayName,
+  alternateName: legalName,
+  jobTitle: headline.split("—")[0]?.trim() ?? headline,
+  description: summary,
+  url: siteUrl,
+  email: contact.email,
+  sameAs: [contact.linkedinHref, contact.githubHref],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: contact.location,
+  },
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -42,11 +60,20 @@ export const metadata: Metadata = {
     siteName: displayName,
     title: `${displayName} — ${headline}`,
     description: summary,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: ogImageAlt,
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: `${displayName} — ${headline}`,
     description: summary,
+    images: [ogImageUrl],
   },
   robots: {
     index: true,
@@ -71,6 +98,7 @@ export default function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
         />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}.hero-reveal-stagger>*{animation:none!important;opacity:1!important;transform:none!important}.reveal-stagger-grid>*{animation:none!important;opacity:1!important;transform:none!important}`}</style>
         </noscript>

@@ -15,9 +15,9 @@ export function Section({ id, eyebrow, title, description, children }: SectionPr
       id={id}
       className="scroll-mt-20 border-t border-[var(--border-hairline)] py-12 sm:scroll-mt-28 sm:py-16 md:py-24"
     >
-      <div className="page-container">
+      <div className="page-container min-w-0">
         <Reveal>
-          <div className="max-w-3xl">
+          <div className="max-w-3xl min-w-0">
             {eyebrow ? (
               <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-[var(--muted)] sm:text-xs sm:tracking-[0.22em]">
                 {eyebrow}
@@ -33,7 +33,7 @@ export function Section({ id, eyebrow, title, description, children }: SectionPr
             ) : null}
           </div>
         </Reveal>
-        <Reveal className="mt-8 sm:mt-10 md:mt-12" stagger={1} staggerChildren>
+        <Reveal className="mt-8 min-w-0 sm:mt-10 md:mt-12" stagger={1} staggerChildren>
           {children}
         </Reveal>
       </div>
