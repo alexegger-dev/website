@@ -18,10 +18,10 @@ export const DEFAULT_SITE_URL =
  * Account where the public portfolio implementation repos live (repo grid + lane links).
  * Change if you move those repositories under another org.
  */
-export const GITHUB_PORTFOLIO_OWNER = "alexegger224" as const;
+export const GITHUB_PORTFOLIO_OWNER = "alexegger-dev" as const;
 
 /** Owner and repo for the LaTeX resume deep link in the hero. */
-export const RESUME_REPO_OWNER = "alexegger224" as const;
+export const RESUME_REPO_OWNER = "alexegger-dev" as const;
 export const PERSONAL_REPO_SLUG = "personal" as const;
 
 export const RESUME_SOURCE_HREF =

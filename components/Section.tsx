@@ -23,7 +23,7 @@ export function Section({ id, eyebrow, title, description, children }: SectionPr
                 {eyebrow}
               </p>
             ) : null}
-            <h2 className="mt-2.5 pb-1 font-[family-name:var(--font-syne)] text-[clamp(1.5rem,4vw+0.75rem,2.25rem)] font-semibold leading-snug tracking-tight sm:mt-3 sm:text-4xl">
+            <h2 className="mt-2.5 pb-1.5 font-[family-name:var(--font-syne)] text-[clamp(1.5rem,4vw+0.75rem,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] sm:mt-3 sm:text-4xl sm:leading-[1.22]">
               {title}
             </h2>
             {description ? (

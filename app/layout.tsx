@@ -75,7 +75,7 @@ export default function RootLayout({
           <style>{`.reveal{opacity:1!important;transform:none!important}.hero-reveal-stagger>*{animation:none!important;opacity:1!important;transform:none!important}.reveal-stagger-grid>*{animation:none!important;opacity:1!important;transform:none!important}`}</style>
         </noscript>
         <div className="site-backdrop" aria-hidden />
-        <div className="site-shell overflow-x-hidden">{children}</div>
+        <div className="site-shell overflow-x-clip">{children}</div>
       </body>
     </html>
   );

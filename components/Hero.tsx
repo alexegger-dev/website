@@ -23,7 +23,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-x-hidden border-b border-[var(--border-medium)] pb-px"
+      className="relative overflow-x-clip border-b border-[var(--border-medium)] pb-px"
     >
       <div
         aria-hidden
@@ -43,9 +43,9 @@ export function Hero() {
           <p className="font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.24em] text-[var(--accent)] sm:text-xs sm:tracking-[0.28em]">
             {tagline}
           </p>
-          <h1 className="pb-1 font-[family-name:var(--font-syne)] font-semibold leading-[1.12] tracking-tight">
+          <h1 className="pb-1.5 font-[family-name:var(--font-syne)] font-semibold leading-[1.18] tracking-[-0.02em] sm:leading-[1.22]">
             <span className="block text-[clamp(1.875rem,5.5vw+0.5rem,3.65rem)]">{displayName}</span>
-            <span className="mt-1.5 block text-[clamp(1.05rem,2.2vw+0.65rem,1.65rem)] font-medium leading-snug text-[var(--foreground-subtle)] sm:mt-2 sm:text-xl md:text-2xl">
+            <span className="mt-1.5 block text-[clamp(1.05rem,2.2vw+0.65rem,1.65rem)] font-medium leading-[1.35] text-[var(--foreground-subtle)] sm:mt-2 sm:text-xl sm:leading-[1.4] md:text-2xl">
               {headline}
             </span>
           </h1>
@@ -93,7 +93,7 @@ export function Hero() {
               Phone
             </p>
             <a
-              className="focus-ring transition-surface mt-2 block min-h-11 text-base font-semibold leading-snug tracking-tight sm:min-h-0 sm:text-lg"
+              className="focus-ring transition-surface mt-2 block min-h-11 text-base font-semibold leading-snug tracking-normal sm:min-h-0 sm:text-lg"
               href={`tel:${contact.phoneTel}`}
             >
               {contact.phone}
@@ -104,7 +104,7 @@ export function Hero() {
               Email
             </p>
             <a
-              className="focus-ring transition-surface mt-2 block min-h-11 break-words text-base font-semibold leading-snug tracking-tight sm:min-h-0 sm:text-lg"
+              className="focus-ring transition-surface mt-2 block min-h-11 break-words text-base font-semibold leading-snug tracking-normal sm:min-h-0 sm:text-lg"
               href={`mailto:${contact.email}`}
             >
               {contact.email}
@@ -115,7 +115,7 @@ export function Hero() {
               GitHub
             </p>
             <a
-              className="focus-ring transition-surface mt-2 inline-flex min-h-11 items-center text-base font-semibold leading-snug tracking-tight sm:min-h-0 sm:text-lg"
+              className="focus-ring transition-surface mt-2 inline-flex min-h-11 items-center text-base font-semibold leading-snug tracking-normal sm:min-h-0 sm:text-lg"
               href={contact.githubHref}
               target="_blank"
               rel="noopener noreferrer"

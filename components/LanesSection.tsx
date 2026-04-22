@@ -13,13 +13,13 @@ export function LanesSection() {
         {lanes.map((lane) => (
           <article
             key={lane.title}
-            className="group relative isolate overflow-x-hidden rounded-2xl border border-[var(--border-medium)] bg-[var(--surface)] p-5 shadow-[var(--shadow-elevated),inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)] transition-surface motion-safe:hover:-translate-y-1 motion-safe:hover:border-[color-mix(in_oklab,var(--accent)_35%,transparent)] motion-safe:hover:shadow-[var(--shadow-card-hover),inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)] sm:p-6"
+            className="group relative isolate overflow-x-clip rounded-2xl border border-[var(--border-medium)] bg-[var(--surface)] p-5 shadow-[var(--shadow-elevated),inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)] transition-surface motion-safe:hover:-translate-y-1 motion-safe:hover:border-[color-mix(in_oklab,var(--accent)_35%,transparent)] motion-safe:hover:shadow-[var(--shadow-card-hover),inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)] sm:p-6"
           >
             <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--accent)_24%,transparent),transparent_72%)] blur-2xl" />
             </div>
             <div className="relative z-10 space-y-4">
-              <h3 className="pb-0.5 font-[family-name:var(--font-syne)] text-xl font-semibold leading-snug tracking-tight">
+              <h3 className="pb-1 font-[family-name:var(--font-syne)] text-xl font-semibold leading-[1.22] tracking-[-0.02em] sm:leading-[1.24]">
                 {lane.title}
               </h3>
               <p className="text-sm leading-relaxed text-[var(--foreground-muted)]">{lane.description}</p>

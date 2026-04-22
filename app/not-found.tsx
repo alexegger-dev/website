@@ -11,7 +11,7 @@ export default function NotFound() {
   return (
     <div className="page-container relative z-10 flex min-h-dvh max-w-2xl flex-col items-center justify-center py-20 text-center">
       <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--accent)]">404</p>
-      <h1 className="mt-4 max-w-lg pb-1 text-center font-[family-name:var(--font-syne)] text-3xl font-semibold leading-snug tracking-tight sm:text-4xl">
+      <h1 className="mt-4 max-w-lg pb-1.5 text-center font-[family-name:var(--font-syne)] text-3xl font-semibold leading-[1.2] tracking-[-0.02em] sm:text-4xl sm:leading-[1.22]">
         Page not found
       </h1>
       <p className="mt-4 max-w-md text-center text-base leading-relaxed text-[var(--foreground-muted)]">
