@@ -4,18 +4,18 @@ export const displayName = "Alex Egger" as const;
 export const legalName = "Alexander Egger" as const;
 
 export const headline =
-  "Founding engineer for production AI platforms—gateways, agent runtimes, and operational control." as const;
+  "Founding engineer for LangGraph/LangChain platforms—AI governance, meta-orchestration, and agentic automation in production." as const;
 
 /** Human-first hook; technical edge lives in the summary and proof sections. */
 export const tagline =
-  "I help teams ship LLM products that stay reliable under real traffic, real budgets, and real compliance pressure." as const;
+  "I help teams ship governed LLM systems: policy at the edge, LangGraph orchestration for real workflows, and codegen agents that earn trust in CI—not demo limbo." as const;
 
 export const summary =
-  "Three years building production AI and full-stack systems: LangGraph/LangChain RAG, multi-agent workflows, multi-tenant SaaS on AWS, and quantitative tooling. I own architecture, implementation, and CI/CD—Python, TypeScript, PostgreSQL, Docker, and GitHub Actions end to end." as const;
+  "Three years building production AI and full-stack systems: LangGraph and LangChain for RAG, supervisors, and meta-orchestration (graphs coordinating graphs, tools, and humans); gateways and policy graphs for AI governance; agentic code generation tied to tests and releases; multi-tenant SaaS on AWS; and classical ML in quant workflows. I own architecture through CI/CD—Python, TypeScript, PostgreSQL, Docker, and GitHub Actions." as const;
 
 /** Shown in the hero aside and footer—aligns inbound with the roles you want. */
 export const careerIntent =
-  "Seeking founding engineer or senior full-stack / platform roles with LLM surface area—US remote, small teams, high ownership." as const;
+  "Seeking founding engineer or senior full-stack / platform roles where LangGraph meets governance and automation—US remote, small teams, high ownership." as const;
 
 export const contact = {
   location: "Remote",
@@ -31,8 +31,18 @@ export const contact = {
 
 export const heroAtAGlance = {
   availability: "Open to select roles",
-  timezone: "US · Remote (Central)",
-  stack: ["Python", "TypeScript", "PostgreSQL", "AWS"] as const,
+  timezone: "US · Remote (Mountain)",
+  /** One line under “At a glance”—keeps the hero card from reading empty above the diagram. */
+  cardSummary:
+    "LangGraph-first control planes: governance layers, meta-orchestrated agents, and guarded codegen under real traffic." as const,
+  stack: [
+    "Python",
+    "TypeScript",
+    "LangGraph",
+    "LangChain",
+    "PostgreSQL",
+    "AWS",
+  ] as const,
 } as const;
 
 export type Lane = {
@@ -43,36 +53,44 @@ export type Lane = {
 
 export const lanes: Lane[] = [
   {
-    title: "Gateway & reliability",
+    title: "Gateway, policy & reliability",
     description:
-      "Teams need an OpenAI-compatible edge that enforces policy when models and vendors flap. I build gateways with YAML rules, retries, circuit breakers, idempotency, and streaming backpressure so clients see predictable behavior—not silent failures.",
+      "Production LLMs need governance at the edge—not one giant prompt. I build OpenAI-compatible gateways with YAML policy, injection and tool-use guardrails, retries, circuit breakers, idempotency, and streaming backpressure so behavior is predictable, fail-open/fail-closed choices are explicit, and traffic stays auditable when models or vendors flap.",
     repos: [
       {
         name: "llm-traffic-controller",
         href: githubRepoUrl("llm-traffic-controller"),
       },
+      { name: "policy-graph-guard", href: githubRepoUrl("policy-graph-guard") },
     ],
   },
   {
     title: "FinOps & tenancy",
     description:
-      "LLM spend explodes without guardrails. I ship metering, per-tenant budgets, operator dashboards, and guarded clients so finance and engineering agree on what “on” means in production.",
+      "Spend and scope are part of AI governance: without metering and budgets, agents quietly bankrupt a product. I ship per-tenant caps, operator dashboards, guarded clients, and Postgres-backed ledgers so finance and engineering share one definition of “on” in production.",
     repos: [{ name: "llm-cost-guard", href: githubRepoUrl("llm-cost-guard") }],
   },
   {
-    title: "Agent runtime & observability",
+    title: "LangGraph, meta-orchestration & agents",
     description:
-      "Agents need isolation, cancellation, deadlines, and traces—not a single long-lived notebook. I design runtimes and policy graphs so jobs are observable, revocable, and safe to run next to customer data.",
+      "LangGraph is where I compose supervisors, DAG-shaped task graphs, and agentic code generation—with checkpoints, HITL, isolation, cancellation, deadlines, and traces. Meta-orchestration means graphs that coordinate other graphs, tools, and humans—not a single omniscient loop pretending to be safe.",
     repos: [
       {
         name: "agent-runtime-kernel",
         href: githubRepoUrl("agent-runtime-kernel"),
       },
       {
+        name: "langgraph-rag-workbench",
+        href: githubRepoUrl("langgraph-rag-workbench"),
+      },
+      {
         name: "supervisor-squad-trace",
         href: githubRepoUrl("supervisor-squad-trace"),
       },
-      { name: "policy-graph-guard", href: githubRepoUrl("policy-graph-guard") },
+      {
+        name: "horizon-task-decomposer",
+        href: githubRepoUrl("horizon-task-decomposer"),
+      },
     ],
   },
 ];
@@ -88,7 +106,7 @@ export const metrics: Metric[] = [
   {
     label: "~88% workflow automation",
     detail:
-      "Production RAG with LangChain/LangGraph for blueprint analysis, summarization, and multimodal generation.",
+      "Production RAG on LangChain/LangGraph—stateful graphs with checkpoints, validation, retries, and structured tool routing for blueprint analysis, summarization, and multimodal generation.",
     context:
       "Stealth AI startup · internal ops and customer workflows · measured as share of manual steps removed vs. prior baseline (2025).",
   },
@@ -102,9 +120,16 @@ export const metrics: Metric[] = [
   {
     label: "~40% less repetitive engineering",
     detail:
-      "Internal agent DAGs for codegen, testing, and deployment automation.",
+      "Meta-orchestrated LangGraph agent DAGs for codegen, test scaffolding, and deployment automation—graphs coordinating tools and CI, not one-off chat sessions.",
     context:
       "Stealth AI startup · engineering time survey + story points before/after agent-assisted workflows (2025).",
+  },
+  {
+    label: "Layered AI governance",
+    detail:
+      "Gateway policy plus LangGraph guardrails—PII/topic/tool gates, injection checks, schema-validated outputs, and budget-aware clients across customer and internal agents.",
+    context:
+      "Stealth AI startup and open-source reference stacks · controls designed and shipped as part of platform work (2024–2026).",
   },
   {
     label: "30–40% alpha lift (backtests)",
@@ -145,8 +170,8 @@ export const experience: Experience[] = [
     location: "Overland Park, KS",
     bullets: [
       "Shipped multi-tenant enterprise SaaS from first commit to production—municipalities, AEC, and private-sector clients—with end-to-end ownership of frontend, backend, infra, and CI/CD.",
-      "Cut manual document workflows sharply via production RAG (LangChain/LangGraph): blueprint analysis, summarization, and multimodal generation with validation, retries, and structured tool routing.",
-      "Scaled engineering leverage with internal agent DAGs for codegen, testing, and deploy automation; hired and mentored a junior engineer and set code review and release standards.",
+      "Cut manual document workflows sharply via production RAG on LangChain/LangGraph: blueprint analysis, summarization, and multimodal generation with checkpoints, validation, retries, hierarchical tool routing, and explicit AI governance choices at the graph edge.",
+      "Scaled engineering leverage with meta-orchestrated agent graphs for codegen, test generation, and deploy automation—supervisor patterns and DAGs wired into review and release; hired and mentored a junior engineer and set code review and release standards.",
     ],
   },
   {
@@ -157,7 +182,7 @@ export const experience: Experience[] = [
     bullets: [
       "Reduced invoice-to-payment latency from five days to under twenty-four hours for SMB clients using OCR plus validation pipelines.",
       "Eliminated thirty-plus hours per week of manual CRM entry with multi-step n8n workflows for lead intake and sync.",
-      "Delivered technical audits and pragmatic AI roadmaps across hospitality, logistics, construction, finance, and wholesale.",
+      "Delivered technical audits and pragmatic AI roadmaps—LangGraph/LangChain adoption, evaluation and governance patterns, and staged agentic automation—across hospitality, logistics, construction, finance, and wholesale.",
     ],
   },
   {
@@ -168,7 +193,7 @@ export const experience: Experience[] = [
     bullets: [
       "Raised risk-adjusted backtest performance roughly thirty to forty percent on systematic options books by refining signals and MAR/CAGR tradeoffs on a Nuxt + Python + PostgreSQL stack.",
       "Integrated IBKR, ORATS, and CBOE data into a full-stack analytics platform with REST pipelines analysts could trust for daily research.",
-      "Supported strategy research with volatility and price forecasting models in Python (scikit-learn, PyTorch).",
+      "Supported strategy research with volatility and price forecasting models in Python (scikit-learn, PyTorch), plus disciplined train/validation design and leakage checks so research translated cleanly to backtests.",
     ],
   },
   {
@@ -199,14 +224,35 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    title: "AI/ML & LLMs",
+    title: "LangChain & LangGraph",
     items: [
       "LangChain",
-      "LangGraph",
-      "RAG",
-      "Multi-agent orchestration",
-      "Multimodal pipelines",
+      "LangGraph (graphs, checkpoints, streaming)",
+      "Supervisor & hierarchical agents",
+      "Meta-orchestration across subgraphs",
+      "RAG & retrieval quality",
+      "Structured tools & JSON outputs",
       "OpenAI / Anthropic / Hugging Face / OpenRouter",
+    ],
+  },
+  {
+    title: "AI governance & agentic automation",
+    items: [
+      "Policy graphs & pre/post-LLM gates",
+      "Gateway YAML rules & injection guardrails",
+      "Agentic code generation in CI",
+      "Eval harnesses & regression checks",
+      "HITL interrupts & resume",
+      "Multimodal pipelines",
+    ],
+  },
+  {
+    title: "ML modeling & quality",
+    items: [
+      "scikit-learn & XGBoost",
+      "PyTorch",
+      "Train/validation discipline & leakage checks",
+      "Forecasting & classification metrics",
     ],
   },
   {
@@ -263,14 +309,13 @@ export const portfolioRepos: PortfolioRepo[] = [
     slug: "langgraph-rag-workbench",
     title: "LangGraph RAG workbench",
     pitch:
-      "RAG + supervisor codegen; NDJSON streaming; RAG_WORKBENCH_MOCK=1 runs the UI without OpenAI spend.",
-    tags: ["LangGraph", "RAG", "Streaming"],
+      "LangGraph RAG with supervisor-driven codegen paths, NDJSON streaming, and RAG_WORKBENCH_MOCK=1 so the UI runs without OpenAI spend.",
+    tags: ["LangGraph", "RAG", "Codegen"],
   },
   {
     slug: "rolefit-coach",
     title: "Role Fit Coach",
-    pitch:
-      "SvelteKit BFF, JWT httpOnly cookie, SSE LangGraph coach, Postgres.",
+    pitch: "SvelteKit BFF, JWT httpOnly cookie, SSE LangGraph coach, Postgres.",
     tags: ["SvelteKit", "LangGraph", "Postgres"],
   },
   {
@@ -291,22 +336,22 @@ export const portfolioRepos: PortfolioRepo[] = [
     slug: "agent-runtime-kernel",
     title: "Agent runtime kernel",
     pitch:
-      "Multi-tenant job runtime for LangGraph: scheduler, cancel, deadlines, sandboxed tools, /metrics.",
+      "Multi-tenant job runtime for LangGraph graphs: scheduler, cancel, deadlines, sandboxed tools, and /metrics for meta-orchestrated workloads.",
     tags: ["Runtime", "LangGraph", "Metrics"],
   },
   {
     slug: "horizon-task-decomposer",
     title: "Horizon task decomposer",
     pitch:
-      "Plan → validate → execute → verify over a JSON task DAG; HMAC approvals; NDJSON; HORIZON_MOCK offline path.",
-    tags: ["DAG", "NDJSON", "Safety"],
+      "Meta-orchestration over a JSON task DAG—plan, validate, execute, verify—with HMAC approvals, NDJSON telemetry, and HORIZON_MOCK offline path.",
+    tags: ["DAG", "Meta-orchestration", "Safety"],
   },
   {
     slug: "supervisor-squad-trace",
     title: "Supervisor squad trace",
     pitch:
-      "Supervisor squad with trace export (NDJSON + optional OTLP) and a small Next.js console.",
-    tags: ["Tracing", "Next.js", "OTLP"],
+      "LangGraph-style supervisor squad with trace export (NDJSON + optional OTLP) and a Next.js console for debugging hierarchical agents.",
+    tags: ["LangGraph", "Tracing", "OTLP"],
   },
   {
     slug: "invoice-reconcile-pipeline",
@@ -332,8 +377,8 @@ export const portfolioRepos: PortfolioRepo[] = [
     slug: "policy-graph-guard",
     title: "Policy graph guard",
     pitch:
-      "LangGraph policy DAG around chat: PII/topic/tool-use and injection checks pre-LLM, JSON schema post-LLM, guarded outputs; MOCK + strict; OpenAPI.",
-    tags: ["Policy", "LangGraph", "OpenAPI"],
+      "LangGraph AI governance DAG around chat: PII/topic/tool-use and injection checks pre-LLM, JSON schema post-LLM, guarded outputs; MOCK + strict; OpenAPI.",
+    tags: ["Governance", "LangGraph", "OpenAPI"],
   },
   {
     slug: "llm-cost-guard",
@@ -349,24 +394,24 @@ export const featuredProjects = [
     name: "Optiver Quantitative Finance Competition",
     meta: "Python, PyTorch, scikit-learn — Finalist",
     bullets: [
-      "ML-driven options volatility forecasting in a competitive quant field.",
-      "Ensemble methods and feature engineering on high-frequency order-book data.",
+      "ML-driven options volatility forecasting in a competitive quant field with ensemble methods and careful out-of-sample design.",
+      "Feature engineering on high-frequency order-book data and classical ML baselines before deep models.",
     ],
   },
   {
     name: "Kaggle — Cardiac Risk Detection",
     meta: "Python, TensorFlow — Finalist",
     bullets: [
-      "Deep learning on patient signal data with strong recall on imbalanced medical sets.",
-      "Preprocessing and augmentation pipelines tuned for clinical risk signals.",
+      "Deep learning on patient signal data with strong recall on imbalanced medical sets and threshold tuning for clinical-style tradeoffs.",
+      "Preprocessing and augmentation pipelines tuned for risk signals and stable validation folds.",
     ],
   },
   {
     name: "Oncological Metastasis Prediction",
     meta: "Python, scikit-learn, XGBoost — Personal project",
     bullets: [
-      "Classification for metastasis risk on public oncology datasets.",
-      "ROC-AUC, precision/recall, and cross-validation for generalization checks.",
+      "Gradient-boosted and linear baselines for metastasis risk on public oncology datasets with interpretable feature contributions.",
+      "ROC-AUC, precision/recall, and cross-validation for generalization checks beyond a single lucky split.",
     ],
   },
 ] as const;
@@ -382,12 +427,20 @@ export const selectedCases: SelectedCase[] = [
   {
     title: "Production LLM gateway",
     slug: "llm-traffic-controller",
-    blurb: "Policies, metering, failover, and OpenAI-compatible routing you can deploy behind real clients.",
+    blurb:
+      "YAML policy, metering hooks, failover, and OpenAI-compatible routing—governance at the edge before spend hits models.",
   },
   {
     title: "Multi-tenant agent runtime",
     slug: "agent-runtime-kernel",
-    blurb: "Scheduler, cancellation, deadlines, sandboxed tools, and Prometheus metrics for LangGraph jobs.",
+    blurb:
+      "Scheduler, cancellation, deadlines, sandboxed tools, and Prometheus metrics for LangGraph jobs at tenant scale.",
+  },
+  {
+    title: "LangGraph policy graph",
+    slug: "policy-graph-guard",
+    blurb:
+      "DAG of checks around the model—PII/topic/tool gates, injection screens, schema-validated outputs, and strict mock paths for CI.",
   },
 ];
 
@@ -395,5 +448,12 @@ export function allGithubRepoHrefs(): string[] {
   const laneHrefs = lanes.flatMap(l => l.repos.map(r => r.href));
   const portfolioHrefs = portfolioRepos.map(r => githubRepoUrl(r.slug));
   const caseHrefs = selectedCases.map(c => githubRepoUrl(c.slug));
-  return [...new Set([...laneHrefs, ...portfolioHrefs, ...caseHrefs, contact.githubHref])];
+  return [
+    ...new Set([
+      ...laneHrefs,
+      ...portfolioHrefs,
+      ...caseHrefs,
+      contact.githubHref,
+    ]),
+  ];
 }

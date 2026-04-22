@@ -21,60 +21,114 @@ const btnGhost =
 const btnMuted =
   "focus-ring transition-surface inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-full border border-dashed border-[var(--border-strong)] px-5 py-3 text-sm font-semibold text-[var(--muted)] hover:border-[var(--border-medium)] hover:text-[var(--foreground)] sm:min-h-11 sm:w-auto sm:px-6";
 
-function HeroControlPlane() {
+/** High-contrast mini diagram so the aside never reads as an empty glass card. */
+function HeroArchitecturePreview() {
   return (
-    <svg
-      className="mx-auto h-auto w-full max-w-[17.5rem] shrink-0 text-[var(--accent)] opacity-[0.9]"
-      viewBox="0 0 320 240"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <rect x="8" y="8" width="120" height="56" rx="12" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.25" />
-      <rect
-        x="192"
-        y="20"
-        width="120"
-        height="44"
-        rx="10"
-        stroke="currentColor"
-        strokeOpacity="0.55"
-        strokeWidth="1.5"
+    <div className="relative overflow-hidden rounded-2xl border border-[var(--border-medium)] bg-[color-mix(in_oklab,var(--surface-2)_65%,var(--surface))] p-4 shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.45]"
+        style={{
+          backgroundImage:
+            "linear-gradient(135deg, color-mix(in oklab, var(--accent) 14%, transparent) 0%, transparent 42%), linear-gradient(315deg, color-mix(in oklab, var(--accent-2) 10%, transparent) 0%, transparent 50%)",
+        }}
       />
-      <rect x="32" y="120" width="96" height="48" rx="10" stroke="currentColor" strokeOpacity="0.28" strokeWidth="1.15" />
-      <rect x="188" y="108" width="124" height="64" rx="12" stroke="currentColor" strokeOpacity="0.42" strokeWidth="1.35" />
-      <path
-        d="M128 36H168C176 36 182 42 182 50V96"
-        stroke="currentColor"
-        strokeOpacity="0.35"
-        strokeWidth="1.15"
-        strokeLinecap="round"
-      />
-      <path
-        d="M182 50H248C256 50 262 56 262 64V108"
-        stroke="currentColor"
-        strokeOpacity="0.5"
-        strokeWidth="1.35"
-        strokeLinecap="round"
-      />
-      <path
-        d="M80 120V88C80 72 92 60 108 60H168"
-        stroke="currentColor"
-        strokeOpacity="0.3"
-        strokeWidth="1.1"
-        strokeLinecap="round"
-      />
-      <path
-        d="M250 172V200C250 214 238 226 222 226H108C92 226 80 214 80 198V168"
-        stroke="currentColor"
-        strokeOpacity="0.32"
-        strokeWidth="1.15"
-        strokeLinecap="round"
-      />
-      <circle cx="182" cy="96" r="4" fill="currentColor" fillOpacity="0.55" />
-      <circle cx="128" cy="36" r="3.5" fill="currentColor" fillOpacity="0.45" />
-      <circle cx="250" cy="140" r="4" fill="currentColor" fillOpacity="0.5" />
-    </svg>
+      <svg
+        className="relative z-[1] mx-auto h-auto w-full max-w-[16.5rem] text-[var(--accent)]"
+        viewBox="0 0 280 168"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden
+      >
+        <rect
+          x="14"
+          y="22"
+          width="92"
+          height="54"
+          rx="11"
+          fill="color-mix(in oklab, currentColor 14%, transparent)"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeOpacity="0.85"
+        />
+        <rect
+          x="174"
+          y="18"
+          width="94"
+          height="44"
+          rx="10"
+          fill="color-mix(in oklab, var(--accent-2) 12%, transparent)"
+          stroke="var(--accent-2)"
+          strokeWidth="2"
+          strokeOpacity="0.75"
+        />
+        <rect
+          x="38"
+          y="104"
+          width="204"
+          height="46"
+          rx="12"
+          fill="color-mix(in oklab, currentColor 10%, transparent)"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeOpacity="0.7"
+        />
+        <path
+          d="M106 49h52c8 0 14 6 14 14v22"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeOpacity="0.65"
+        />
+        <path
+          d="M221 62v26c0 8-6 14-14 14h-55"
+          stroke="var(--accent-2)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeOpacity="0.6"
+        />
+        <path
+          d="M140 104V88c0-10 8-18 18-18h8"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeOpacity="0.55"
+        />
+        <circle cx="140" cy="76" r="5" fill="currentColor" fillOpacity="0.75" />
+        <circle cx="106" cy="49" r="4" fill="currentColor" fillOpacity="0.55" />
+        <text
+          x="24"
+          y="42"
+          fill="currentColor"
+          fillOpacity="0.9"
+          style={{ font: "600 11px var(--font-geist-sans), system-ui, sans-serif" }}
+        >
+          Edge
+        </text>
+        <text
+          x="182"
+          y="36"
+          style={{
+            fill: "var(--accent-2)",
+            font: "600 10px var(--font-geist-sans), system-ui, sans-serif",
+          }}
+        >
+          Metering
+        </text>
+        <text
+          x="48"
+          y="132"
+          fill="currentColor"
+          fillOpacity="0.88"
+          style={{ font: "600 11px var(--font-geist-sans), system-ui, sans-serif" }}
+        >
+          Agent runtime
+        </text>
+      </svg>
+      <p className="relative z-[1] mt-3 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--muted)] sm:text-[11px] sm:tracking-[0.18em]">
+        Governance → LangGraph → jobs
+      </p>
+    </div>
   );
 }
 
@@ -94,11 +148,12 @@ export function Hero() {
       />
       <div className="page-container relative max-w-6xl pb-14 pt-12 sm:pb-28 sm:pt-20 md:pt-24">
         <div className="hero-reveal-stagger flex flex-col gap-10 sm:gap-12">
-          <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,19.5rem)] lg:items-start lg:gap-14">
+          <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,21rem)] lg:items-start lg:gap-14">
             <div className="flex min-w-0 flex-col gap-8 sm:gap-12">
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 <span className={pill}>Founding engineer</span>
-                <span className={pill}>AI platforms</span>
+                <span className={pill}>LangGraph / LangChain</span>
+                <span className={pill}>Governance & agents</span>
                 <span className={pill}>{contact.location}</span>
               </div>
               <div className="max-w-3xl min-w-0 space-y-4 sm:space-y-6">
@@ -152,18 +207,25 @@ export function Hero() {
               </div>
             </div>
 
-            <aside className="flex min-w-0 flex-col gap-6 rounded-3xl border border-[var(--border-medium)] bg-[color-mix(in_oklab,var(--surface)_88%,transparent)] p-5 shadow-[var(--shadow-elevated)] backdrop-blur-sm sm:p-6 lg:sticky lg:top-24">
-              <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--muted)] sm:text-[11px]">
-                At a glance
-              </p>
-              <HeroControlPlane />
-              <dl className="space-y-4 text-sm">
+            <aside className="flex min-h-[min(22rem,52dvh)] min-w-0 flex-col overflow-hidden rounded-3xl border border-[var(--border-medium)] bg-[var(--surface)] shadow-[var(--shadow-elevated)] ring-1 ring-[color-mix(in_oklab,var(--accent)_18%,transparent)] backdrop-blur-sm lg:sticky lg:top-24">
+              <div className="border-b border-[var(--border-hairline)] bg-[color-mix(in_oklab,var(--surface-2)_35%,var(--surface))] px-5 pb-4 pt-5 sm:px-6 sm:pb-5 sm:pt-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)] sm:text-[11px] sm:tracking-[0.22em]">
+                  At a glance
+                </p>
+                <p className="mt-2.5 text-sm leading-snug text-[var(--foreground-muted)] sm:text-[0.9375rem] sm:leading-relaxed">
+                  {heroAtAGlance.cardSummary}
+                </p>
+              </div>
+              <div className="flex flex-1 flex-col px-5 py-5 sm:px-6 sm:py-6">
+                <HeroArchitecturePreview />
+              </div>
+              <dl className="space-y-4 border-t border-[var(--border-hairline)] bg-[color-mix(in_oklab,var(--surface)_92%,var(--surface-2))] px-5 py-5 sm:px-6">
                 <div>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">Availability</dt>
                   <dd className="mt-1.5 font-medium text-[var(--foreground)]">{heroAtAGlance.availability}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">Location</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">Location &amp; time</dt>
                   <dd className="mt-1.5 font-medium text-[var(--foreground)]">{heroAtAGlance.timezone}</dd>
                 </div>
                 <div>
@@ -172,7 +234,7 @@ export function Hero() {
                     {heroAtAGlance.stack.map((s) => (
                       <span
                         key={s}
-                        className="rounded-full border border-[var(--border-medium)] bg-[var(--surface-2)] px-2.5 py-1 font-mono text-[11px] text-[var(--foreground-muted)]"
+                        className="rounded-full border border-[var(--border-medium)] bg-[var(--surface)] px-2.5 py-1 font-mono text-[11px] text-[var(--foreground-muted)]"
                       >
                         {s}
                       </span>

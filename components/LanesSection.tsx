@@ -7,7 +7,7 @@ export function LanesSection() {
       id="narrative"
       eyebrow="Focus areas"
       title="How I build production AI"
-      description="Gateway, FinOps, and agent-runtime work—each area links to a repo you can clone and stress-test."
+      description="Gateway governance, FinOps, and LangGraph-heavy agent work—each area links to repos you can clone and stress-test."
     >
       <div className="reveal-stagger-grid grid min-w-0 gap-5 sm:gap-6 lg:grid-cols-3">
         {lanes.map((lane) => (

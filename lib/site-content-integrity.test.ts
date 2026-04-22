@@ -33,6 +33,8 @@ describe("site-content integrity", () => {
     for (const s of heroAtAGlance.stack) {
       expect(s.trim().length).toBeGreaterThan(0);
     }
+    expect(heroAtAGlance.timezone.toLowerCase()).toContain("mountain");
+    expect(heroAtAGlance.cardSummary.trim().length).toBeGreaterThan(20);
   });
 
   it("requires every metric to have defensible scope copy", () => {
