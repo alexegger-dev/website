@@ -1,4 +1,4 @@
-import { careerIntent, contact, displayName, legalName } from "@/lib/site-content";
+import { careerIntent, contact, displayName } from "@/lib/site-content";
 
 export function SiteFooter() {
   return (
@@ -6,9 +6,7 @@ export function SiteFooter() {
       <div className="page-container flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between sm:gap-12">
         <div className="min-w-0 max-w-xl">
           <p className="font-[family-name:var(--font-syne)] text-xl font-semibold">{displayName}</p>
-          <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
-            Legal name: {legalName} · {contact.location}
-          </p>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{contact.location}</p>
           <p className="mt-4 text-pretty text-sm leading-relaxed text-[var(--foreground-muted)]">{careerIntent}</p>
         </div>
         <div className="flex min-w-0 shrink-0 flex-col gap-1 text-sm sm:gap-3 sm:pt-1 md:items-end md:text-right">

@@ -7,22 +7,21 @@ export const legalName = "Alexander Egger" as const;
 export const structuredDataJobTitle = "AI / full-stack engineer" as const;
 
 /** Browser tab / OG default title line (kept concise for recruiters). */
-export const siteTitleTagline =
-  "AI and full-stack: RAG, agents, shipping product" as const;
+export const siteTitleTagline = "Mid-level AI and full-stack engineer" as const;
 
 export const headline =
-  "Mid-level AI and full-stack engineer focused on production RAG and agents, evaluation-driven delivery, and end-to-end product work on AWS." as const;
+  "Mid-level AI and full-stack engineer | Next.js, Python, LangGraph, AWS" as const;
 
 /** One-line hook above the H1. */
 export const tagline =
-  "I build LangGraph and LangChain systems, ship full-stack features, and care a lot about tests, reliability, and clear business results." as const;
+  "I build production RAG workflows and multi-tenant AI products. I focus on reliable architecture, evaluation-driven delivery, and clean CI/CD." as const;
 
 export const summary =
   "I have spent the last three years building production RAG workflows, agent systems, and multi-tenant SaaS on AWS. I work across the stack: Next.js on the frontend, Python and TypeScript services, PostgreSQL with pgvector, auth and billing, and CI/CD with GitHub Actions. I started in quantitative finance, so I naturally focus on measurable outcomes and solid evaluation practices." as const;
 
 /** Hiring intent aligned with mid-level AI and full-stack roles. */
 export const careerIntent =
-  "I am looking for mid-level AI engineer or full-stack roles with real AI systems work. Remote in the US is ideal. I do best on teams that value good tests, observability, and shipping useful product." as const;
+  "I am looking for mid-level AI or full-stack roles with meaningful AI systems work. Remote in the US is ideal." as const;
 
 export const contact = {
   location: "Remote",
@@ -38,16 +37,16 @@ export const contact = {
 
 /** Resume-backed proof lines for the hero (strictly from resume.latex). */
 export const heroProofBullets = [
-  "Plan review on jurisdiction-specific RAG: hours to minutes per document at a pre-seed AEC SaaS company.",
-  "Logistics invoicing: approximately five business days to same-day payment cycle (OCR plus validation, consulting).",
-  "Pytest and Playwright integration and regression suites gating every deploy behind a green CI pipeline.",
+  "Plan review on jurisdiction-specific RAG dropped from hours to minutes per document.",
+  "A logistics invoicing workflow moved from about five days to same-day processing.",
+  "Pytest and Playwright suites gate every deploy behind a green CI pipeline.",
 ] as const;
 
 export const heroAtAGlance = {
   availability: "Open to selected roles",
   timezone: "US · Remote (Mountain)",
   cardSummary:
-    "Production RAG on LangGraph over blueprints, specifications, and building codes, with Pydantic validation, retries, deterministic tool routing, and LangSmith plus CloudWatch visibility." as const,
+    "Recent work: production LangGraph RAG for AEC workflows, reliability patterns with validation and retries, and strong release discipline through tests and CI." as const,
   stack: [
     "Python",
     "TypeScript",
@@ -171,7 +170,7 @@ export const experience: Experience[] = [
     title: "Founding Engineer",
     location: "Overland Park, KS",
     bullets: [
-      "Sole engineer on a multi-tenant SaaS for blueprint analysis, code compliance checks, and construction document generation, deployed with municipalities, AEC firms, and private contractors.",
+      "Founding engineer leading development of a multi-tenant SaaS for blueprint analysis, code compliance checks, and construction document generation, deployed with municipalities, AEC firms, and private contractors.",
       "Built production RAG pipelines on LangGraph over blueprints, specifications, and jurisdiction-specific building codes; typical plan review dropped from several hours to minutes per document.",
       "Implemented agent reliability patterns: Pydantic schema validation, exponential-backoff retries, deterministic tool routing; traces and failure modes monitored through LangSmith and CloudWatch.",
       "Built the stack end-to-end: Next.js frontend, Python and TypeScript services, PostgreSQL with pgvector, tenant isolation, auth, billing, and CI/CD via GitHub Actions on AWS ECS.",
@@ -201,16 +200,6 @@ export const experience: Experience[] = [
       "Refined signal generation on options volatility strategies, improving out-of-sample Sharpe and CAGR in backtests across equity index markets.",
       "Developed ML models for volatility forecasting and options pricing to support systematic strategy research.",
       "Automated analytics and reporting pipelines, removing a recurring weekly manual reporting burden for the research desk.",
-    ],
-  },
-  {
-    company: "Independent Research",
-    range: "Feb 2023 - Dec 2023",
-    title: "Quantitative Analyst",
-    location: "Kansas City, MO",
-    bullets: [
-      "Researched options market microstructure, volatility surface modeling, and systematic strategy design across equity index and commodity markets.",
-      "Built and backtested volatility forecasting models, benchmarked against historical implied-volatility surfaces to validate predictive signal out-of-sample.",
     ],
   },
 ];
@@ -269,10 +258,6 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Automation & integrations",
     items: ["REST APIs", "n8n", "OCR pipelines"],
-  },
-  {
-    title: "AI-native development",
-    items: ["Cursor", "Claude Code", "OpenCode", "Windsurf"],
   },
 ];
 

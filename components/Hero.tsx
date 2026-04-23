@@ -66,12 +66,11 @@ export function Hero() {
             <div className="flex min-w-0 flex-col gap-6 sm:gap-8">
               <div className="flex flex-wrap gap-1.5 sm:gap-2.5">
                 <span className={pill}>Mid-level AI / full-stack</span>
-                <span className={pill}>LangGraph / LangChain</span>
-                <span className={pill}>RAG & agents</span>
+                <span className={pill}>Next.js · Python · LangGraph · AWS</span>
                 <span className={pill}>{contact.location}</span>
               </div>
               <div className="max-w-3xl min-w-0 space-y-4 sm:space-y-5">
-                <p className="max-w-prose text-pretty font-mono text-[0.75rem] uppercase leading-relaxed tracking-[0.16em] text-[var(--accent)] sm:text-[0.8125rem] sm:tracking-[0.18em]">
+                <p className="max-w-prose text-pretty text-[0.97rem] leading-relaxed text-[var(--foreground-muted)] sm:text-[1rem]">
                   {tagline}
                 </p>
                 <h1 className="pb-1 font-[family-name:var(--font-syne)] font-semibold leading-[1.18] tracking-[-0.02em] sm:leading-[1.22]">
@@ -133,7 +132,7 @@ export function Hero() {
             <aside className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-3xl border border-[var(--border-medium)] bg-[var(--surface)] shadow-[var(--shadow-elevated)] ring-1 ring-[color-mix(in_oklab,var(--accent)_12%,transparent)] backdrop-blur-md supports-[backdrop-filter]:bg-[color-mix(in_oklab,var(--surface)_92%,transparent)] lg:sticky lg:top-28">
               <div className="border-b border-[var(--border-hairline)] bg-[color-mix(in_oklab,var(--surface-2)_35%,var(--surface))] px-5 pb-4 pt-5 sm:px-6 sm:pb-5 sm:pt-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent)] sm:tracking-[0.2em]">
-                  At a glance
+                  Current snapshot
                 </p>
                 <p className="mt-2.5 text-sm leading-snug text-[var(--foreground-muted)] sm:text-[0.9375rem] sm:leading-relaxed">
                   {heroAtAGlance.cardSummary}

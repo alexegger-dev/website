@@ -8,9 +8,9 @@ export function ProofSection() {
   return (
     <Section
       id="proof"
-      eyebrow="Evidence"
-      title="Outcomes from my resume"
-      description="Each card maps to a line on my resume. Scope notes show where the result came from and how it is measured."
+      eyebrow="Business impact"
+      title="Case studies and outcomes"
+      description="Each case maps to a concrete line on my resume, with context on where the result came from."
     >
       <div className="reveal-stagger-grid grid min-w-0 gap-4 sm:gap-5 md:grid-cols-2">
         {metrics.map((metric, index) => {
