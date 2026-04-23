@@ -7,8 +7,8 @@ export function ReposSection() {
     <Section
       id="repos"
       eyebrow="Portfolio"
-      title="Repositories worth opening first"
-      description="Each repo maps to a concrete capability—gateways, runtimes, contracts, and quantitative tooling. Titles are for humans; slugs match GitHub."
+      title="Full portfolio index"
+      description="Twelve reference implementations spanning gateways, RAG, runtimes, contracts, and quantitative tooling. Display titles are for scanning; slugs match GitHub for cloning and CI review."
     >
       <div className="reveal-stagger-grid flex min-w-0 flex-col overflow-hidden rounded-2xl border border-[var(--border-medium)] md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:rounded-none md:border-0 xl:grid-cols-3">
         {portfolioRepos.map((repo) => (
@@ -25,7 +25,7 @@ export function ReposSection() {
                 <h3 className="font-[family-name:var(--font-syne)] text-base font-semibold leading-snug tracking-[-0.02em] text-[var(--foreground)] sm:text-lg">
                   {repo.title}
                 </h3>
-                <p className="mt-1 font-mono text-[11px] leading-snug text-[var(--muted)] sm:text-xs">{repo.slug}</p>
+                <p className="prose-safe mt-1 font-mono text-[11px] leading-snug text-[var(--muted)] sm:text-xs">{repo.slug}</p>
               </div>
               <span className="shrink-0 text-[var(--muted)] transition-colors group-hover:text-[var(--accent)]" aria-hidden>
                 ↗
@@ -43,7 +43,7 @@ export function ReposSection() {
                 ))}
               </div>
             ) : null}
-            <p className="mt-2 flex-1 text-sm leading-snug text-[var(--foreground-muted)] md:mt-3 md:leading-relaxed">
+            <p className="mt-2 flex-1 text-pretty text-sm leading-snug text-[var(--foreground-muted)] md:mt-3 md:leading-relaxed">
               {repo.pitch}
             </p>
             <span className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--accent)] sm:text-[11px] sm:tracking-[0.18em] md:mt-6">

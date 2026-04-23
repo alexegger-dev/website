@@ -4,7 +4,15 @@ import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
 import { absoluteSiteUrl, getPublicSiteUrl } from "@/lib/site-config";
-import { contact, displayName, headline, legalName, summary } from "@/lib/site-content";
+import {
+  contact,
+  displayName,
+  headline,
+  legalName,
+  siteTitleTagline,
+  structuredDataJobTitle,
+  summary,
+} from "@/lib/site-content";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +39,7 @@ const personJsonLd = {
   "@type": "Person",
   name: displayName,
   alternateName: legalName,
-  jobTitle: headline.split("—")[0]?.trim() ?? headline,
+  jobTitle: structuredDataJobTitle,
   description: summary,
   url: siteUrl,
   email: contact.email,
@@ -45,7 +53,7 @@ const personJsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${displayName} — Founding engineer · AI platforms`,
+    default: `${displayName} — ${siteTitleTagline}`,
     template: `%s — ${displayName}`,
   },
   description: summary,

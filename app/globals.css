@@ -5,57 +5,55 @@
 /* -------------------------------------------------------------------------- */
 :root {
   color-scheme: dark;
-  --background: #050508;
-  --foreground: #f4f1ea;
-  --muted: #9d978c;
-  --surface: #0a0b10;
-  --surface-2: #10121a;
-  --border: color-mix(in oklab, #ffffff 12%, transparent);
-  --accent: #7cf4d6;
-  --accent-2: #f6c177;
-  --glow: color-mix(in oklab, var(--accent) 28%, transparent);
-  --header-bg: color-mix(in oklab, var(--background) 82%, transparent);
-  --foreground-muted: color-mix(in oklab, var(--foreground) 76%, transparent);
-  --foreground-subtle: color-mix(in oklab, var(--foreground) 64%, transparent);
-  --foreground-on-accent: #04110d;
-  --border-hairline: color-mix(in oklab, var(--foreground) 7%, transparent);
-  --border-medium: color-mix(in oklab, var(--foreground) 11%, transparent);
-  --border-strong: color-mix(in oklab, var(--foreground) 16%, transparent);
-  --grid-line: color-mix(in oklab, var(--foreground) 4.5%, transparent);
-  /* Softer than raw rgba(0,0,0): lifts cards without a muddy halo on #050508. */
-  --shadow-elevated: 0 18px 56px color-mix(in oklab, #000 48%, transparent);
-  --shadow-card-hover: 0 22px 72px color-mix(in oklab, #000 54%, transparent);
-  --footer-bg: color-mix(in oklab, var(--background) 88%, #000 12%);
+  /* Cool slate base — higher contrast for recruiter skims */
+  --background: #070a12;
+  --foreground: #f2f4f8;
+  --muted: #9aa3b2;
+  --surface: #0c101c;
+  --surface-2: #12182a;
+  --border: color-mix(in oklab, #ffffff 11%, transparent);
+  --accent: #5eead4;
+  --accent-2: #fbbf77;
+  --glow: color-mix(in oklab, var(--accent) 24%, transparent);
+  --header-bg: color-mix(in oklab, var(--background) 78%, transparent);
+  --foreground-muted: color-mix(in oklab, var(--foreground) 74%, transparent);
+  --foreground-subtle: color-mix(in oklab, var(--foreground) 62%, transparent);
+  --foreground-on-accent: #04120f;
+  --border-hairline: color-mix(in oklab, var(--foreground) 8%, transparent);
+  --border-medium: color-mix(in oklab, var(--foreground) 12%, transparent);
+  --border-strong: color-mix(in oklab, var(--foreground) 17%, transparent);
+  --grid-line: color-mix(in oklab, var(--foreground) 4%, transparent);
+  --shadow-elevated: 0 16px 48px color-mix(in oklab, #000 44%, transparent);
+  --shadow-card-hover: 0 20px 64px color-mix(in oklab, #000 50%, transparent);
+  --footer-bg: color-mix(in oklab, var(--background) 86%, #000 14%);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
-  /** Long deceleration — reads calmer on large surfaces (enterprise motion). */
   --ease-smooth: cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-settle: cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 [data-theme="light"] {
   color-scheme: light;
-  --background: #faf9f6;
-  --foreground: #111318;
-  --muted: #5c5f68;
-  --surface: #f1f0ec;
-  --surface-2: #e6e4dd;
+  --background: #f8f9fc;
+  --foreground: #0f1419;
+  --muted: #5a6270;
+  --surface: #eef1f8;
+  --surface-2: #e2e7f2;
   --border: color-mix(in oklab, var(--foreground) 9%, transparent);
-  --accent: #0a7c66;
-  /* Darker amber for small uppercase labels on warm paper (contrast). */
-  --accent-2: #6a4010;
-  --glow: color-mix(in oklab, var(--accent) 18%, transparent);
-  --header-bg: color-mix(in oklab, var(--background) 72%, #ffffff 28%);
-  --foreground-muted: color-mix(in oklab, var(--foreground) 72%, #ffffff 28%);
-  --foreground-subtle: color-mix(in oklab, var(--foreground) 58%, #ffffff 42%);
-  --foreground-on-accent: #fafaf8;
-  --border-hairline: color-mix(in oklab, var(--foreground) 8%, transparent);
-  --border-medium: color-mix(in oklab, var(--foreground) 12%, transparent);
-  --border-strong: color-mix(in oklab, var(--foreground) 18%, transparent);
-  --grid-line: color-mix(in oklab, var(--foreground) 6%, transparent);
-  --shadow-elevated: 0 12px 40px color-mix(in oklab, var(--foreground) 8%, transparent);
-  --shadow-card-hover: 0 18px 56px color-mix(in oklab, var(--foreground) 12%, transparent);
-  --footer-bg: color-mix(in oklab, var(--surface) 90%, var(--foreground) 10%);
+  --accent: #0d6b5c;
+  --accent-2: #7c4a12;
+  --glow: color-mix(in oklab, var(--accent) 16%, transparent);
+  --header-bg: color-mix(in oklab, var(--background) 70%, #ffffff 30%);
+  --foreground-muted: color-mix(in oklab, var(--foreground) 70%, #ffffff 30%);
+  --foreground-subtle: color-mix(in oklab, var(--foreground) 56%, #ffffff 44%);
+  --foreground-on-accent: #fafbfc;
+  --border-hairline: color-mix(in oklab, var(--foreground) 9%, transparent);
+  --border-medium: color-mix(in oklab, var(--foreground) 13%, transparent);
+  --border-strong: color-mix(in oklab, var(--foreground) 19%, transparent);
+  --grid-line: color-mix(in oklab, var(--foreground) 5.5%, transparent);
+  --shadow-elevated: 0 10px 36px color-mix(in oklab, var(--foreground) 7%, transparent);
+  --shadow-card-hover: 0 16px 48px color-mix(in oklab, var(--foreground) 10%, transparent);
+  --footer-bg: color-mix(in oklab, var(--surface) 88%, var(--foreground) 12%);
 }
 
 @theme inline {
@@ -123,8 +121,8 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-  font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
-  line-height: 1.65;
+  font-size: clamp(0.9375rem, 0.88rem + 0.28vw, 1.0625rem);
+  line-height: 1.62;
 }
 
 /* Themed tap highlight (avoids opaque gray rectangles on mobile). */
@@ -167,6 +165,14 @@ body {
   }
 }
 
+/* Tight phones: avoid edge-to-edge text without shrinking desktop rhythm */
+@media (max-width: 380px) {
+  .page-container {
+    padding-left: max(0.875rem, env(safe-area-inset-left));
+    padding-right: max(0.875rem, env(safe-area-inset-right));
+  }
+}
+
 .site-backdrop {
   position: fixed;
   inset: 0;
@@ -176,72 +182,67 @@ body {
   background-color: var(--background);
   background-image:
     radial-gradient(
-      min(140vw, 2000px) min(90vh, 1200px) at 50% -18%,
-      color-mix(in oklab, var(--accent) 22%, transparent),
+      min(120vw, 1400px) min(75vh, 900px) at 50% -8%,
+      color-mix(in oklab, var(--accent) 14%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      min(90vw, 900px) min(55vh, 640px) at 100% 40%,
+      color-mix(in oklab, var(--accent-2) 8%, transparent),
       transparent 72%
-    ),
-    radial-gradient(
-      min(120vw, 1600px) min(85vh, 1000px) at 0% 35%,
-      color-mix(in oklab, var(--accent) 10%, transparent),
-      transparent 68%
-    ),
-    radial-gradient(
-      min(120vw, 1600px) min(85vh, 1000px) at 100% 25%,
-      color-mix(in oklab, var(--accent-2) 14%, transparent),
-      transparent 65%
     ),
     repeating-linear-gradient(
       0deg,
       transparent 0,
-      transparent 47px,
-      var(--grid-line) 47px,
-      var(--grid-line) 48px
+      transparent 56px,
+      var(--grid-line) 56px,
+      var(--grid-line) 57px
     ),
     repeating-linear-gradient(
       90deg,
       transparent 0,
-      transparent 47px,
-      var(--grid-line) 47px,
-      var(--grid-line) 48px
+      transparent 56px,
+      var(--grid-line) 56px,
+      var(--grid-line) 57px
     );
-  background-blend-mode: normal, normal, normal, soft-light, soft-light;
-  mask-image: radial-gradient(ellipse 88% 72% at 50% 38%, black 18%, transparent 100%);
+  background-blend-mode: normal, normal, soft-light, soft-light;
+  mask-image: radial-gradient(ellipse 92% 78% at 50% 32%, black 22%, transparent 100%);
 }
 
 [data-theme="light"] .site-backdrop {
   background-image:
     radial-gradient(
-      min(130vw, 1800px) min(85vh, 1000px) at 50% -12%,
-      color-mix(in oklab, var(--accent) 12%, transparent),
-      transparent 70%
+      min(110vw, 1200px) min(70vh, 820px) at 50% -6%,
+      color-mix(in oklab, var(--accent) 10%, transparent),
+      transparent 72%
     ),
     radial-gradient(
-      min(100vw, 1400px) min(70vh, 800px) at 100% 20%,
-      color-mix(in oklab, var(--accent-2) 10%, transparent),
-      transparent 68%
+      min(85vw, 900px) min(50vh, 600px) at 100% 28%,
+      color-mix(in oklab, var(--accent-2) 7%, transparent),
+      transparent 74%
     ),
     repeating-linear-gradient(
       0deg,
       transparent 0,
-      transparent 55px,
-      var(--grid-line) 55px,
-      var(--grid-line) 56px
+      transparent 64px,
+      var(--grid-line) 64px,
+      var(--grid-line) 65px
     ),
     repeating-linear-gradient(
       90deg,
       transparent 0,
-      transparent 55px,
-      var(--grid-line) 55px,
-      var(--grid-line) 56px
+      transparent 64px,
+      var(--grid-line) 64px,
+      var(--grid-line) 65px
     );
-  mask-image: radial-gradient(ellipse 92% 75% at 50% 35%, black 25%, transparent 100%);
+  mask-image: radial-gradient(ellipse 94% 80% at 50% 30%, black 28%, transparent 100%);
 }
 
 .site-backdrop::after {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.035;
+  opacity: 0.028;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
 }
@@ -258,12 +259,12 @@ body {
       transform: scale(1) translate3d(0, 0, 0);
     }
     50% {
-      transform: scale(1.012) translate3d(0.25%, 0.15%, 0);
+      transform: scale(1.006) translate3d(0.12%, 0.08%, 0);
     }
   }
 
   .site-backdrop {
-    animation: backdrop-drift 56s ease-in-out infinite;
+    animation: backdrop-drift 80s ease-in-out infinite;
   }
 }
 
@@ -294,7 +295,7 @@ p {
 }
 
 [data-theme="light"] ::selection {
-  background: color-mix(in oklab, var(--accent) 28%, transparent);
+  background: color-mix(in oklab, var(--accent) 32%, transparent);
   color: var(--foreground);
 }
 
@@ -305,6 +306,12 @@ p {
 .focus-ring:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+/* Long monospaced slugs / URLs: wrap without forcing overflow on narrow viewports */
+.prose-safe {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .transition-surface {
@@ -322,10 +329,10 @@ p {
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
-    transform: translate3d(0, 8px, 0);
+    transform: translate3d(0, 6px, 0);
     transition:
-      opacity 0.85s var(--ease-settle),
-      transform 0.85s var(--ease-settle);
+      opacity 0.48s var(--ease-settle),
+      transform 0.48s var(--ease-settle);
     transition-delay: var(--reveal-delay, 0ms);
   }
 
@@ -367,7 +374,7 @@ p {
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-reveal-stagger > * {
-    animation: hero-fade-up 0.95s var(--ease-settle) backwards;
+    animation: hero-fade-up 0.65s var(--ease-settle) backwards;
   }
 
   .hero-reveal-stagger > *:nth-child(1) {
@@ -408,7 +415,7 @@ p {
 
 @media (prefers-reduced-motion: no-preference) {
   .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > * {
-    animation: grid-item-rise 0.78s var(--ease-settle) backwards;
+    animation: grid-item-rise 0.52s var(--ease-settle) backwards;
   }
 
   .reveal.is-visible.reveal--stagger-children .reveal-stagger-grid > *:nth-child(1) {
@@ -464,8 +471,8 @@ p {
 /* Editorial body (hero + lane narratives)                                    */
 /* -------------------------------------------------------------------------- */
 .text-editorial {
-  font-size: clamp(0.875rem, 0.82rem + 0.22vw, 1.02rem);
-  line-height: 1.72;
+  font-size: clamp(0.9rem, 0.84rem + 0.24vw, 1.05rem);
+  line-height: 1.68;
 }
 
 /**

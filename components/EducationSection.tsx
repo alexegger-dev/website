@@ -6,8 +6,8 @@ export function EducationSection() {
     <Section
       id="education"
       eyebrow="Education and highlights"
-      title="Credentials and selected work"
-      description="Coursework, certifications, and projects that reflect production-oriented rigor."
+      title="Education, certifications, and competitions"
+      description="Coursework and certificates align with my resume LaTeX source. Competition entries are listed there only."
     >
       <div className="reveal-stagger-grid grid min-w-0 gap-6 lg:grid-cols-2 lg:gap-8">
         <div className="min-w-0 space-y-6 rounded-2xl border border-[var(--border-medium)] bg-[var(--surface)] p-5 shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)] sm:p-8">
@@ -18,7 +18,9 @@ export function EducationSection() {
             </p>
           </div>
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Certifications</h4>
+            <h4 className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--muted)] sm:text-xs sm:tracking-[0.18em]">
+              Certifications
+            </h4>
             <ul className="mt-3 space-y-2.5 text-sm leading-snug text-[var(--foreground-muted)]">
               {certifications.map((cert) => (
                 <li key={cert} className="flex gap-2.5">

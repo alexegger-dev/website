@@ -5,12 +5,13 @@ import {
   displayName,
   headline,
   heroAtAGlance,
+  heroProofBullets,
   summary,
   tagline,
 } from "@/lib/site-content";
 
 const pill =
-  "inline-flex min-h-10 items-center gap-2 rounded-full border border-[var(--border-medium)] bg-[var(--surface)] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--muted)] sm:min-h-9 sm:text-[11px] sm:tracking-[0.18em]";
+  "inline-flex min-h-10 items-center gap-2 rounded-full border border-[var(--border-medium)] bg-[var(--surface)] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--muted)] sm:min-h-9 sm:tracking-[0.16em]";
 
 const btnPrimary =
   "btn-primary-cta focus-ring transition-surface inline-flex min-h-12 min-w-0 w-full touch-manipulation items-center justify-center rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-[var(--foreground-on-accent)] hover:brightness-110 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-[0_14px_44px_color-mix(in_oklab,var(--accent)_32%,transparent)] sm:min-h-11 sm:w-auto sm:px-6";
@@ -21,13 +22,13 @@ const btnGhost =
 const btnMuted =
   "focus-ring transition-surface inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-full border border-dashed border-[var(--border-strong)] px-5 py-3 text-sm font-semibold text-[var(--muted)] hover:border-[var(--border-medium)] hover:text-[var(--foreground)] sm:min-h-11 sm:w-auto sm:px-6";
 
-/** High-contrast mini diagram so the aside never reads as an empty glass card. */
+/** Compact diagram — gateway, data, runtime. */
 function HeroArchitecturePreview() {
   return (
     <div className="relative overflow-hidden rounded-2xl border border-[var(--border-medium)] bg-[color-mix(in_oklab,var(--surface-2)_65%,var(--surface))] p-4 shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)]">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.45]"
+        className="pointer-events-none absolute inset-0 opacity-[0.4]"
         style={{
           backgroundImage:
             "linear-gradient(135deg, color-mix(in oklab, var(--accent) 14%, transparent) 0%, transparent 42%), linear-gradient(315deg, color-mix(in oklab, var(--accent-2) 10%, transparent) 0%, transparent 50%)",
@@ -103,7 +104,7 @@ function HeroArchitecturePreview() {
           fillOpacity="0.9"
           style={{ font: "600 11px var(--font-geist-sans), system-ui, sans-serif" }}
         >
-          Edge
+          API edge
         </text>
         <text
           x="182"
@@ -113,7 +114,7 @@ function HeroArchitecturePreview() {
             font: "600 10px var(--font-geist-sans), system-ui, sans-serif",
           }}
         >
-          Metering
+          Data
         </text>
         <text
           x="48"
@@ -122,11 +123,11 @@ function HeroArchitecturePreview() {
           fillOpacity="0.88"
           style={{ font: "600 11px var(--font-geist-sans), system-ui, sans-serif" }}
         >
-          Agent runtime
+          Agents
         </text>
       </svg>
-      <p className="relative z-[1] mt-3 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--muted)] sm:text-[11px] sm:tracking-[0.18em]">
-        Governance → LangGraph → jobs
+      <p className="relative z-[1] mt-3 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--muted)] sm:tracking-[0.16em]">
+        Product · RAG · reliability
       </p>
     </div>
   );
@@ -136,45 +137,55 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-x-clip border-b border-[var(--border-medium)] pb-px"
+      className="relative scroll-mt-24 overflow-x-clip border-b border-[var(--border-medium)] pb-px sm:scroll-mt-28"
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[min(65vh,480px)] opacity-30 blur-3xl sm:h-[min(70vh,520px)]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[min(55vh,420px)] opacity-25 blur-3xl sm:h-[min(60vh,480px)]"
         style={{
           background:
-            "radial-gradient(ellipse 75% 80% at 22% 12%, color-mix(in oklab, var(--accent) 32%, transparent), transparent 72%), radial-gradient(ellipse 70% 75% at 88% 8%, color-mix(in oklab, var(--accent-2) 22%, transparent), transparent 68%)",
+            "radial-gradient(ellipse 75% 80% at 22% 12%, color-mix(in oklab, var(--accent) 28%, transparent), transparent 72%), radial-gradient(ellipse 70% 75% at 88% 8%, color-mix(in oklab, var(--accent-2) 18%, transparent), transparent 68%)",
         }}
       />
-      <div className="page-container relative max-w-6xl pb-14 pt-12 sm:pb-28 sm:pt-20 md:pt-24">
-        <div className="hero-reveal-stagger flex flex-col gap-10 sm:gap-12">
-          <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,21rem)] lg:items-start lg:gap-14">
-            <div className="flex min-w-0 flex-col gap-8 sm:gap-12">
-              <div className="flex flex-wrap gap-2 sm:gap-3">
-                <span className={pill}>Founding engineer</span>
+      <div className="page-container relative pb-12 pt-10 sm:pb-20 sm:pt-16 md:pt-20">
+        <div className="hero-reveal-stagger flex flex-col gap-8 sm:gap-10">
+          <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,20.5rem)] lg:items-start lg:gap-12">
+            <div className="flex min-w-0 flex-col gap-6 sm:gap-8">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2.5">
+                <span className={pill}>Mid-level AI / full-stack</span>
                 <span className={pill}>LangGraph / LangChain</span>
-                <span className={pill}>Governance & agents</span>
+                <span className={pill}>RAG & agents</span>
                 <span className={pill}>{contact.location}</span>
               </div>
-              <div className="max-w-3xl min-w-0 space-y-4 sm:space-y-6">
-                <p className="font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.22em] text-[var(--accent)] sm:text-[0.7rem] sm:tracking-[0.24em] lg:text-[0.6875rem] lg:tracking-[0.22em]">
+              <div className="max-w-3xl min-w-0 space-y-4 sm:space-y-5">
+                <p className="max-w-prose text-pretty font-mono text-[0.75rem] uppercase leading-relaxed tracking-[0.16em] text-[var(--accent)] sm:text-[0.8125rem] sm:tracking-[0.18em]">
                   {tagline}
                 </p>
                 <h1 className="pb-1 font-[family-name:var(--font-syne)] font-semibold leading-[1.18] tracking-[-0.02em] sm:leading-[1.22]">
-                  <span className="block text-[clamp(1.875rem,5.5vw+0.5rem,3.5rem)]">{displayName}</span>
-                  <span className="mt-1.5 block max-w-[40rem] text-[clamp(1rem,2vw+0.6rem,1.55rem)] font-medium leading-[1.38] text-[var(--foreground-subtle)] sm:mt-2 sm:leading-[1.42] md:text-xl">
+                  <span className="block text-balance text-[clamp(1.75rem,4.8vw+0.45rem,3.125rem)]">{displayName}</span>
+                  <span className="mt-1.5 block max-w-[42rem] text-pretty text-[clamp(0.98rem,1.6vw+0.5rem,1.4rem)] font-medium leading-[1.38] text-[var(--foreground-subtle)] sm:mt-2 sm:leading-[1.42] md:text-xl">
                     {headline}
                   </span>
                 </h1>
-                <p className="text-editorial max-w-prose text-[var(--foreground-muted)]">{summary}</p>
-                <p className="max-w-prose text-sm leading-relaxed text-[var(--foreground-subtle)] sm:text-[0.9375rem]">
+                <ul className="grid max-w-prose list-none gap-2.5 pl-0 sm:gap-3">
+                  {heroProofBullets.map(line => (
+                    <li
+                      key={line}
+                      className="flex gap-3 rounded-xl border border-[var(--border-hairline)] bg-[color-mix(in_oklab,var(--surface)_88%,transparent)] px-3 py-2.5 text-sm leading-snug text-[var(--foreground-muted)] sm:px-4 sm:py-3 sm:text-[0.9375rem] sm:leading-relaxed"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" aria-hidden />
+                      <span className="min-w-0 text-pretty">{line}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-editorial max-w-prose text-pretty text-[var(--foreground-muted)]">{summary}</p>
+                <p className="max-w-prose text-pretty text-sm leading-relaxed text-[var(--foreground-subtle)] sm:text-[0.9375rem]">
                   {careerIntent}
                 </p>
               </div>
-              <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-stretch sm:gap-4">
+              <div className="grid min-w-0 grid-cols-2 gap-2.5 sm:flex sm:flex-row sm:flex-wrap sm:items-stretch sm:gap-3">
                 <a className={btnPrimary} href={`mailto:${contact.email}`} aria-label={`Email ${contact.email}`}>
-                  <span className="sm:hidden">Email</span>
-                  <span className="hidden sm:inline">Email {contact.email}</span>
+                  Email
                 </a>
                 <a
                   className={btnGhost}
@@ -201,15 +212,14 @@ export function Hero() {
                   rel="noopener noreferrer"
                   aria-label="Resume LaTeX source on GitHub (opens in new tab)"
                 >
-                  <span className="sm:hidden">Resume (LaTeX)</span>
-                  <span className="hidden sm:inline">Resume — LaTeX source</span>
+                  Resume (source)
                 </a>
               </div>
             </div>
 
-            <aside className="flex min-h-[min(22rem,52dvh)] min-w-0 flex-col overflow-hidden rounded-3xl border border-[var(--border-medium)] bg-[var(--surface)] shadow-[var(--shadow-elevated)] ring-1 ring-[color-mix(in_oklab,var(--accent)_18%,transparent)] backdrop-blur-sm lg:sticky lg:top-24">
+            <aside className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-3xl border border-[var(--border-medium)] bg-[var(--surface)] shadow-[var(--shadow-elevated)] ring-1 ring-[color-mix(in_oklab,var(--accent)_12%,transparent)] backdrop-blur-md supports-[backdrop-filter]:bg-[color-mix(in_oklab,var(--surface)_92%,transparent)] lg:sticky lg:top-28">
               <div className="border-b border-[var(--border-hairline)] bg-[color-mix(in_oklab,var(--surface-2)_35%,var(--surface))] px-5 pb-4 pt-5 sm:px-6 sm:pb-5 sm:pt-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)] sm:text-[11px] sm:tracking-[0.22em]">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent)] sm:tracking-[0.2em]">
                   At a glance
                 </p>
                 <p className="mt-2.5 text-sm leading-snug text-[var(--foreground-muted)] sm:text-[0.9375rem] sm:leading-relaxed">
@@ -221,17 +231,28 @@ export function Hero() {
               </div>
               <dl className="space-y-4 border-t border-[var(--border-hairline)] bg-[color-mix(in_oklab,var(--surface)_92%,var(--surface-2))] px-5 py-5 sm:px-6">
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">Availability</dt>
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">Availability</dt>
                   <dd className="mt-1.5 font-medium text-[var(--foreground)]">{heroAtAGlance.availability}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">Location &amp; time</dt>
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">Location &amp; time</dt>
                   <dd className="mt-1.5 font-medium text-[var(--foreground)]">{heroAtAGlance.timezone}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">Core stack</dt>
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">Phone</dt>
+                  <dd className="mt-1.5">
+                    <a
+                      className="focus-ring font-semibold text-[var(--foreground)] hover:text-[var(--accent)]"
+                      href={`tel:${contact.phoneTel}`}
+                    >
+                      {contact.phone}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">Core stack</dt>
                   <dd className="mt-2 flex flex-wrap gap-2">
-                    {heroAtAGlance.stack.map((s) => (
+                    {heroAtAGlance.stack.map(s => (
                       <span
                         key={s}
                         className="rounded-full border border-[var(--border-medium)] bg-[var(--surface)] px-2.5 py-1 font-mono text-[11px] text-[var(--foreground-muted)]"
@@ -243,44 +264,6 @@ export function Hero() {
                 </div>
               </dl>
             </aside>
-          </div>
-
-          <div className="grid min-w-0 gap-4 rounded-2xl border border-[var(--border-medium)] bg-[var(--surface-2)] p-4 shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_6%,transparent)] sm:grid-cols-3 sm:gap-4 sm:p-6">
-            <div className="min-w-0">
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)] sm:text-[11px] sm:tracking-[0.2em]">
-                Phone
-              </p>
-              <a
-                className="focus-ring transition-surface mt-2 block min-h-11 touch-manipulation text-base font-semibold leading-snug tracking-normal sm:min-h-0 sm:text-lg"
-                href={`tel:${contact.phoneTel}`}
-              >
-                {contact.phone}
-              </a>
-            </div>
-            <div className="min-w-0">
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)] sm:text-[11px] sm:tracking-[0.2em]">
-                Email
-              </p>
-              <a
-                className="focus-ring transition-surface mt-2 block min-h-11 touch-manipulation break-words text-base font-semibold leading-snug tracking-normal sm:min-h-0 sm:text-lg"
-                href={`mailto:${contact.email}`}
-              >
-                {contact.email}
-              </a>
-            </div>
-            <div className="min-w-0">
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)] sm:text-[11px] sm:tracking-[0.2em]">
-                GitHub
-              </p>
-              <a
-                className="focus-ring transition-surface mt-2 inline-flex min-h-11 touch-manipulation items-center text-base font-semibold leading-snug tracking-normal sm:min-h-0 sm:text-lg"
-                href={contact.githubHref}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @{GITHUB_SITE_OWNER}
-              </a>
-            </div>
           </div>
         </div>
       </div>

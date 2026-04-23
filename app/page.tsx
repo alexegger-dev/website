@@ -15,13 +15,13 @@ export default function Home() {
       <SiteNav />
       <main className="flex-1">
         <Hero />
-        <LanesSection />
         <ProofSection />
-        <SelectedCasesSection />
         <ExperienceSection />
+        <SelectedCasesSection />
+        <LanesSection />
         <SkillsSection />
-        <EducationSection />
         <ReposSection />
+        <EducationSection />
       </main>
       <SiteFooter />
     </>

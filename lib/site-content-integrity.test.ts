@@ -8,6 +8,7 @@ import {
   featuredProjects,
   headline,
   heroAtAGlance,
+  heroProofBullets,
   lanes,
   metrics,
   portfolioRepos,
@@ -93,7 +94,19 @@ describe("site-content integrity", () => {
   });
 
   it("lists certifications and featured projects", () => {
-    expect(certifications.length).toBeGreaterThanOrEqual(3);
+    expect(certifications.length).toBe(3);
     expect(featuredProjects.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("keeps public metrics resume-scoped (no legacy stealth/uptime slogans)", () => {
+    const joined = metrics.map(m => `${m.label} ${m.detail} ${m.context}`).join(" ");
+    expect(joined).not.toMatch(/Stealth|99\.9%|~88%|~40%/i);
+  });
+
+  it("exposes hero proof lines for the fold", () => {
+    expect(heroProofBullets.length).toBeGreaterThanOrEqual(3);
+    for (const line of heroProofBullets) {
+      expect(line.trim().length).toBeGreaterThan(20);
+    }
   });
 });
