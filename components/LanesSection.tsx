@@ -7,7 +7,7 @@ export function LanesSection() {
       id="narrative"
       eyebrow="Focus areas"
       title="How I group the work"
-      description="Three interview-sized lanes: edge reliability, spend control, and RAG or agent runtime. Each card links to reference repositories you can clone and run locally."
+      description="Three lanes: edge reliability, spend control, and RAG or agent runtime. Each card links to repos you can clone and run."
     >
       <div className="reveal-stagger-grid grid min-w-0 gap-5 sm:gap-6 lg:grid-cols-3">
         {lanes.map((lane) => (

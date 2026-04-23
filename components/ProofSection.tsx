@@ -10,7 +10,7 @@ export function ProofSection() {
       id="proof"
       eyebrow="Evidence"
       title="Outcomes from my resume"
-      description="Each card reflects a concrete statement on my resume. Scope lines state the employer context and how the outcome is defined. No additional internal metrics beyond that."
+      description="Each card maps to a line on my resume. Scope notes show where the result came from and how it is measured."
     >
       <div className="reveal-stagger-grid grid min-w-0 gap-4 sm:gap-5 md:grid-cols-2">
         {metrics.map((metric, index) => {

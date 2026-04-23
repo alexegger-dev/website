@@ -4,7 +4,7 @@ import { displayName, headline } from "@/lib/site-content";
 /** Required for `output: "export"` so the OG image route is generated at build time. */
 export const dynamic = "force-static";
 
-export const alt = `${displayName} — portfolio`;
+export const alt = `${displayName} portfolio`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

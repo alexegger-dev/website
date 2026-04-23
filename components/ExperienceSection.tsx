@@ -7,7 +7,7 @@ export function ExperienceSection() {
       id="experience"
       eyebrow="Experience"
       title="Professional experience"
-      description="Pre-seed AEC product engineering, independent consulting delivery, financial analytics engineering, and quantitative research. Newest first; wording tracks the resume."
+      description="Pre-seed product engineering, consulting delivery, financial analytics, and quant research. Newest first."
     >
       <div className="reveal-stagger-grid relative min-w-0">
         <div

@@ -7,7 +7,7 @@ export function SkillsSection() {
       id="stack"
       eyebrow="Stack"
       title="Skills"
-      description="Grouped to mirror the skills section of my resume: a fast keyword pass for screeners, with depth verifiable in repositories and automated tests."
+      description="Grouped the same way as my resume. Easy to scan, and easy to verify in the repos."
     >
       <div className="reveal-stagger-grid grid min-w-0 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
         {skillGroups.map((group) => (

@@ -8,7 +8,7 @@ export function SelectedCasesSection() {
       id="cases"
       eyebrow="Deep dives"
       title="Start here on GitHub"
-      description="Three public repositories that map cleanly to technical interviews. Open the README first, then review tests and CI. The same trio linked from my GitHub profile."
+      description="Three repos that are easy to discuss in interviews. Start with the README, then look at tests and CI."
     >
       <div className="reveal-stagger-grid grid min-w-0 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
         {selectedCases.map((item) => (

@@ -7,14 +7,14 @@ export function EducationSection() {
       id="education"
       eyebrow="Education and highlights"
       title="Education, certifications, and competitions"
-      description="Coursework and certificates align with my resume LaTeX source. Competition entries are listed there only."
+      description="Coursework and certifications match the resume source. Competitions listed here are also in the resume."
     >
       <div className="reveal-stagger-grid grid min-w-0 gap-6 lg:grid-cols-2 lg:gap-8">
         <div className="min-w-0 space-y-6 rounded-2xl border border-[var(--border-medium)] bg-[var(--surface)] p-5 shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)] sm:p-8">
           <div>
             <h3 className="pb-0.5 font-[family-name:var(--font-syne)] text-xl font-semibold leading-snug">Education</h3>
             <p className="mt-3 text-sm leading-relaxed text-[var(--foreground-muted)]">
-              <span className="font-semibold text-[var(--foreground)]">{education.school}</span> — {education.detail}
+              <span className="font-semibold text-[var(--foreground)]">{education.school}</span> - {education.detail}
             </p>
           </div>
           <div>

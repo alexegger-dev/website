@@ -15,14 +15,14 @@ export const headline =
 
 /** One-line hook above the H1. */
 export const tagline =
-  "LangGraph and LangChain pipelines, production-grade agent patterns, and customer-facing applications—with disciplined tests, observability, and outcomes consistent with my resume." as const;
+  "I build LangGraph and LangChain systems, ship full-stack features, and care a lot about tests, reliability, and clear business results." as const;
 
 export const summary =
-  "Three years building production RAG, agent workflows, and multi-tenant SaaS on AWS: Next.js frontends, Python and TypeScript services, PostgreSQL with pgvector, tenant isolation, authentication, billing, and CI/CD through GitHub Actions. Quantitative finance background in options volatility, with a bias toward evaluation-driven development and measurable cycle-time improvements." as const;
+  "I have spent the last three years building production RAG workflows, agent systems, and multi-tenant SaaS on AWS. I work across the stack: Next.js on the frontend, Python and TypeScript services, PostgreSQL with pgvector, auth and billing, and CI/CD with GitHub Actions. I started in quantitative finance, so I naturally focus on measurable outcomes and solid evaluation practices." as const;
 
-/** Hiring intent — aligned with mid-level AI + full-stack targeting. */
+/** Hiring intent aligned with mid-level AI and full-stack roles. */
 export const careerIntent =
-  "Seeking mid-level AI engineer or mid-level full-stack roles with meaningful AI systems exposure. United States, remote preferred—teams that value tests, observability, and clear product impact." as const;
+  "I am looking for mid-level AI engineer or full-stack roles with real AI systems work. Remote in the US is ideal. I do best on teams that value good tests, observability, and shipping useful product." as const;
 
 export const contact = {
   location: "Remote",
@@ -80,15 +80,15 @@ export const lanes: Lane[] = [
     ],
   },
   {
-    title: "FinOps & tenancy",
+    title: "FinOps and tenancy",
     description:
-      "Metering, budgets, and Postgres-backed usage so multi-tenant AI products stay financially bounded — operator surfaces and guarded clients teams can reason about.",
+      "I treat cost controls as part of product quality. This lane covers metering, budgets, and tenant-aware usage tracking, plus operator tooling teams can actually use.",
     repos: [{ name: "llm-cost-guard", href: githubRepoUrl("llm-cost-guard") }],
   },
   {
-    title: "RAG, agents & traces",
+    title: "RAG, agents, and traces",
     description:
-      "LangGraph for RAG and supervisors, job isolation and cancellation where it matters, and trace export for debugging hierarchical agents — the same problem class as production blueprint/code workflows and on-call style triage.",
+      "This is where I run LangGraph RAG and supervisor patterns, plus runtime controls like cancellation and trace export. It is the same class of work as production document workflows and on-call style triage.",
     repos: [
       {
         name: "agent-runtime-kernel",
@@ -120,30 +120,30 @@ export type Metric = {
 /** All metrics are grounded in resume.latex only (no extra internal survey stats). */
 export const metrics: Metric[] = [
   {
-    label: "Plan review: hours → minutes",
+    label: "Plan review: hours to minutes",
     detail:
-      "Production RAG on LangGraph over blueprints, specifications, and jurisdiction-specific building codes — typical plan review dropped from several hours to minutes per document.",
+      "Built production LangGraph RAG over blueprints, specifications, and jurisdiction-specific building codes. Typical plan review dropped from several hours to minutes per document.",
     context:
-      "Pre-seed startup (AEC / construction tech) · founding engineer · document review cycle vs. prior manual workflow (Oct 2025 — present).",
+      "Pre-seed startup (AEC / construction tech), founding engineer, document review cycle vs. prior manual workflow (Oct 2025 to present).",
   },
   {
-    label: "Invoices: ~5 days → same-day",
+    label: "Invoices: five days to same-day",
     detail:
-      "Invoicing pipeline combining OCR extraction with rule-based validation — reduced a logistics client's payment cycle from roughly five days to same-day.",
+      "Built an invoicing pipeline using OCR plus rule-based validation. It reduced one logistics client's payment cycle from about five days to same-day.",
     context:
-      "Independent consultant · AI automation engineer · SMB finance ops (Feb — Sept 2025).",
+      "Independent consultant, AI automation engineer, SMB finance ops (Feb to Sept 2025).",
   },
   {
     label: "Green CI before every deploy",
     detail:
-      "Integration and regression test suites with pytest and Playwright — every deploy gated behind a green pipeline.",
+      "Wrote integration and regression suites in pytest and Playwright, then used them to gate every deploy.",
     context:
-      "Pre-seed startup (AEC / construction tech) · founding engineer · release process (Oct 2025 — present).",
+      "Pre-seed startup (AEC / construction tech), founding engineer, release process (Oct 2025 to present).",
   },
   {
     label: "Stronger backtests (options)",
     detail:
-      "Refined signal generation on options volatility strategies, improving out-of-sample Sharpe and CAGR in backtests across equity index markets — alongside a Nuxt + Python analytics stack.",
+      "Refined options-volatility signal generation and improved out-of-sample Sharpe and CAGR in backtests, alongside a Nuxt plus Python analytics platform.",
     context:
       "APX Financial Analytics · full stack, financial analytics · systematic strategies; backtests only, not live trading advice (2024).",
   },
@@ -152,7 +152,7 @@ export const metrics: Metric[] = [
     detail:
       "Automated lead intake and CRM synchronization in n8n, removing a substantial block of weekly manual data entry from the client's operations team.",
     context:
-      "Independent consultant · AI automation engineer · sales/ops workflow (Feb — Sept 2025).",
+      "Independent consultant, AI automation engineer, sales and ops workflow (Feb to Sept 2025).",
   },
 ];
 
@@ -167,11 +167,11 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     company: "Pre-seed startup (AEC / construction tech)",
-    range: "Oct 2025 — Present",
+    range: "Oct 2025 - Present",
     title: "Founding Engineer",
     location: "Overland Park, KS",
     bullets: [
-      "Sole engineer on a multi-tenant SaaS for automated blueprint analysis, code compliance checks, and construction document generation — deployed with municipalities, AEC firms, and private contractors.",
+      "Sole engineer on a multi-tenant SaaS for blueprint analysis, code compliance checks, and construction document generation, deployed with municipalities, AEC firms, and private contractors.",
       "Built production RAG pipelines on LangGraph over blueprints, specifications, and jurisdiction-specific building codes; typical plan review dropped from several hours to minutes per document.",
       "Implemented agent reliability patterns: Pydantic schema validation, exponential-backoff retries, deterministic tool routing; traces and failure modes monitored through LangSmith and CloudWatch.",
       "Built the stack end-to-end: Next.js frontend, Python and TypeScript services, PostgreSQL with pgvector, tenant isolation, auth, billing, and CI/CD via GitHub Actions on AWS ECS.",
@@ -181,7 +181,7 @@ export const experience: Experience[] = [
   },
   {
     company: "Independent Consultant",
-    range: "Feb 2025 — Sept 2025",
+    range: "Feb 2025 - Sept 2025",
     title: "AI Automation Engineer",
     location: "Kansas City, MO",
     bullets: [
@@ -193,7 +193,7 @@ export const experience: Experience[] = [
   },
   {
     company: "APX Financial Analytics",
-    range: "Jan 2024 — Dec 2024",
+    range: "Jan 2024 - Dec 2024",
     title: "Full Stack Engineer, Financial Analytics",
     location: "Kansas City, MO",
     bullets: [
@@ -205,7 +205,7 @@ export const experience: Experience[] = [
   },
   {
     company: "Independent Research",
-    range: "Feb 2023 — Dec 2023",
+    range: "Feb 2023 - Dec 2023",
     title: "Quantitative Analyst",
     location: "Kansas City, MO",
     bullets: [
@@ -278,13 +278,13 @@ export const skillGroups: SkillGroup[] = [
 
 export const education = {
   school: "Park University",
-  detail: "Business & Finance coursework — 2022–2025 · Parkville, MO",
+  detail: "Business and Finance coursework (2022-2025), Parkville, MO",
 } as const;
 
 export const certifications = [
-  "DeepLearning.AI — Deep Learning Specialization (Coursera)",
-  "Stanford Online — Data Science & Machine Learning (Coursera)",
-  "HarvardX — Machine Learning (edX)",
+  "DeepLearning.AI - Deep Learning Specialization (Coursera)",
+  "Stanford Online - Data Science and Machine Learning (Coursera)",
+  "HarvardX - Machine Learning (edX)",
 ] as const;
 
 export type PortfolioRepo = {
@@ -314,7 +314,8 @@ export const portfolioRepos: PortfolioRepo[] = [
   {
     slug: "incident-copilot",
     title: "Incident copilot",
-    pitch: "HITL incident workflow — interrupt / resume, mock mode for CI.",
+    pitch:
+      "HITL incident workflow with interrupt and resume paths, plus mock mode for CI.",
     tags: ["HITL", "LangGraph", "CI"],
   },
   {
@@ -355,7 +356,7 @@ export const portfolioRepos: PortfolioRepo[] = [
   {
     slug: "scout",
     title: "Scout (Rust TUI)",
-    pitch: "Rust TUI agent — allowlisted HTTP, optional LLM planner.",
+    pitch: "Rust TUI agent with allowlisted HTTP and an optional LLM planner.",
     tags: ["Rust", "TUI", "Agents"],
   },
   {
@@ -384,14 +385,14 @@ export const portfolioRepos: PortfolioRepo[] = [
 export const featuredProjects = [
   {
     name: "Optiver Quantitative Finance Competition",
-    meta: "Python, PyTorch, scikit-learn — Finalist",
+    meta: "Python, PyTorch, scikit-learn - Finalist",
     bullets: [
       "Options volatility forecasting with ensemble ML methods and engineered features on high-frequency order-book data; selected as a finalist.",
     ],
   },
   {
-    name: "Kaggle — Cardiac Risk Detection",
-    meta: "Python, TensorFlow, Deep Learning — Top submission",
+    name: "Kaggle Cardiac Risk Detection",
+    meta: "Python, TensorFlow, Deep Learning - Top submission",
     bullets: [
       "Deep learning model for cardiac risk detection from patient signal data; preprocessing and augmentation to improve recall on highly imbalanced medical datasets.",
     ],
@@ -404,13 +405,13 @@ export type SelectedCase = {
   blurb: string;
 };
 
-/** README deep links — matches profile “start here” trio. */
+/** README deep links that match the profile "start here" trio. */
 export const selectedCases: SelectedCase[] = [
   {
     title: "LLM gateway",
     slug: "llm-traffic-controller",
     blurb:
-      "OpenAI-compatible edge: policies, retries, circuit breakers, idempotency hooks, and streaming — README-first review path.",
+      "OpenAI-compatible edge with policies, retries, circuit breakers, idempotency hooks, and streaming. Start with the README.",
   },
   {
     title: "RAG workbench",
@@ -422,7 +423,7 @@ export const selectedCases: SelectedCase[] = [
     title: "Agent traces",
     slug: "supervisor-squad-trace",
     blurb:
-      "Supervisor squad with normalized trace export and a small console — how I think about debugging multi-step agents.",
+      "Supervisor squad with normalized trace export and a small console. This is how I debug multi-step agents.",
   },
 ];
 

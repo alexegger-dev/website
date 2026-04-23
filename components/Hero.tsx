@@ -22,113 +22,26 @@ const btnGhost =
 const btnMuted =
   "focus-ring transition-surface inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-full border border-dashed border-[var(--border-strong)] px-5 py-3 text-sm font-semibold text-[var(--muted)] hover:border-[var(--border-medium)] hover:text-[var(--foreground)] sm:min-h-11 sm:w-auto sm:px-6";
 
-/** Compact diagram — gateway, data, runtime. */
-function HeroArchitecturePreview() {
+function HeroFocusCard() {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[var(--border-medium)] bg-[color-mix(in_oklab,var(--surface-2)_65%,var(--surface))] p-4 shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)]">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.4]"
-        style={{
-          backgroundImage:
-            "linear-gradient(135deg, color-mix(in oklab, var(--accent) 14%, transparent) 0%, transparent 42%), linear-gradient(315deg, color-mix(in oklab, var(--accent-2) 10%, transparent) 0%, transparent 50%)",
-        }}
-      />
-      <svg
-        className="relative z-[1] mx-auto h-auto w-full max-w-[16.5rem] text-[var(--accent)]"
-        viewBox="0 0 280 168"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
-      >
-        <rect
-          x="14"
-          y="22"
-          width="92"
-          height="54"
-          rx="11"
-          fill="color-mix(in oklab, currentColor 14%, transparent)"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeOpacity="0.85"
-        />
-        <rect
-          x="174"
-          y="18"
-          width="94"
-          height="44"
-          rx="10"
-          fill="color-mix(in oklab, var(--accent-2) 12%, transparent)"
-          stroke="var(--accent-2)"
-          strokeWidth="2"
-          strokeOpacity="0.75"
-        />
-        <rect
-          x="38"
-          y="104"
-          width="204"
-          height="46"
-          rx="12"
-          fill="color-mix(in oklab, currentColor 10%, transparent)"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeOpacity="0.7"
-        />
-        <path
-          d="M106 49h52c8 0 14 6 14 14v22"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeOpacity="0.65"
-        />
-        <path
-          d="M221 62v26c0 8-6 14-14 14h-55"
-          stroke="var(--accent-2)"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeOpacity="0.6"
-        />
-        <path
-          d="M140 104V88c0-10 8-18 18-18h8"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeOpacity="0.55"
-        />
-        <circle cx="140" cy="76" r="5" fill="currentColor" fillOpacity="0.75" />
-        <circle cx="106" cy="49" r="4" fill="currentColor" fillOpacity="0.55" />
-        <text
-          x="24"
-          y="42"
-          fill="currentColor"
-          fillOpacity="0.9"
-          style={{ font: "600 11px var(--font-geist-sans), system-ui, sans-serif" }}
-        >
-          API edge
-        </text>
-        <text
-          x="182"
-          y="36"
-          style={{
-            fill: "var(--accent-2)",
-            font: "600 10px var(--font-geist-sans), system-ui, sans-serif",
-          }}
-        >
-          Data
-        </text>
-        <text
-          x="48"
-          y="132"
-          fill="currentColor"
-          fillOpacity="0.88"
-          style={{ font: "600 11px var(--font-geist-sans), system-ui, sans-serif" }}
-        >
-          Agents
-        </text>
-      </svg>
-      <p className="relative z-[1] mt-3 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--muted)] sm:tracking-[0.16em]">
-        Product · RAG · reliability
+    <div className="rounded-2xl border border-[var(--border-medium)] bg-[color-mix(in_oklab,var(--surface-2)_60%,var(--surface))] p-4 shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_5%,transparent)]">
+      <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--accent)]">
+        Current focus
       </p>
+      <ul className="mt-3 space-y-2.5 text-sm leading-relaxed text-[var(--foreground-muted)]">
+        <li className="flex gap-2.5">
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" aria-hidden />
+          <span>Shipping practical RAG and agent workflows for real teams.</span>
+        </li>
+        <li className="flex gap-2.5">
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" aria-hidden />
+          <span>Building reliable delivery paths with tests and clear failure handling.</span>
+        </li>
+        <li className="flex gap-2.5">
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" aria-hidden />
+          <span>Keeping features tied to measurable outcomes and faster cycle time.</span>
+        </li>
+      </ul>
     </div>
   );
 }
@@ -227,7 +140,7 @@ export function Hero() {
                 </p>
               </div>
               <div className="flex flex-1 flex-col px-5 py-5 sm:px-6 sm:py-6">
-                <HeroArchitecturePreview />
+                <HeroFocusCard />
               </div>
               <dl className="space-y-4 border-t border-[var(--border-hairline)] bg-[color-mix(in_oklab,var(--surface)_92%,var(--surface-2))] px-5 py-5 sm:px-6">
                 <div>

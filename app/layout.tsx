@@ -32,7 +32,7 @@ const syne = Syne({
 
 const siteUrl = getPublicSiteUrl();
 const ogImageUrl = absoluteSiteUrl("/opengraph-image");
-const ogImageAlt = `${displayName} — portfolio`;
+const ogImageAlt = `${displayName} portfolio`;
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -53,8 +53,8 @@ const personJsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${displayName} — ${siteTitleTagline}`,
-    template: `%s — ${displayName}`,
+    default: `${displayName} | ${siteTitleTagline}`,
+    template: `%s | ${displayName}`,
   },
   description: summary,
   applicationName: displayName,
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: displayName,
-    title: `${displayName} — ${headline}`,
+    title: `${displayName} | ${headline}`,
     description: summary,
     images: [
       {
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${displayName} — ${headline}`,
+    title: `${displayName} | ${headline}`,
     description: summary,
     images: [ogImageUrl],
   },

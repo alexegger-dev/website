@@ -8,7 +8,7 @@ export function ReposSection() {
       id="repos"
       eyebrow="Portfolio"
       title="Full portfolio index"
-      description="Twelve reference implementations spanning gateways, RAG, runtimes, contracts, and quantitative tooling. Display titles are for scanning; slugs match GitHub for cloning and CI review."
+      description="Twelve reference implementations across gateways, RAG, runtimes, contracts, and quant tooling. Titles are for scanning, and slugs match GitHub."
     >
       <div className="reveal-stagger-grid flex min-w-0 flex-col overflow-hidden rounded-2xl border border-[var(--border-medium)] md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:rounded-none md:border-0 xl:grid-cols-3">
         {portfolioRepos.map((repo) => (
